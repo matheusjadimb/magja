@@ -229,13 +229,15 @@ public class CartRemoteServiceImpl extends GeneralServiceImpl<Cart> implements
 			Map<String, Object> props = new HashMap<String, Object>();
 			props.put("product_id", product.getId());
 			props.put("qty", quantity);
+			List<Object> list = new LinkedList<Object>();
+			list.add(props);
 //			params.add(props);
 //
 //			params.add(cart.getStoreId());
 
 			Boolean success = (Boolean) soapClient.callArgs(
 					ResourcePath.ShoppingCartProductAdd, new Object[] {
-							cart.getId(), props, cart.getStoreId()
+							cart.getId(), list, cart.getStoreId()
 					});
 			if (!success) {
 				throw new ServiceException("Could not add product");
