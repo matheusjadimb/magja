@@ -75,9 +75,10 @@ public interface CartRemoteService extends GeneralService<Cart> {
 	 * create an order from cart
 	 * 
 	 * @param cart
+	 * @return 
 	 * @throws ServiceException
 	 */
-	public abstract void order(Cart cart) throws ServiceException;
+	public abstract String order(Cart cart) throws ServiceException;
 
 	/**
 	 * set shipping and billing addresses
@@ -98,5 +99,7 @@ public interface CartRemoteService extends GeneralService<Cart> {
 	public abstract void addProduct(Cart cart, Product product, double quantity) throws ServiceException;
 
 	public abstract void setShippingMethod(Cart cart) throws ServiceException;
+
+	public abstract void setPaymentMethod(Cart cart) throws ServiceException;
 
 }

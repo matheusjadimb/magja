@@ -114,6 +114,7 @@ public enum ResourcePath {
 	CountryList("country.list"),
 	RegionList("region.list"),
 	ShoppingCartShippingMethod("cart_shipping.method"),
+	ShoppingCartPaymentMethod("cart_payment.method"),	
 	ShoppingCartCreate("cart.create"),
 	ShoppingCartLicenseAgreement("cart.license"),
 	ShoppingCartTotals("cart.totals"),

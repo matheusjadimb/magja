@@ -166,15 +166,12 @@ public class CartRemoteServiceImpl extends GeneralServiceImpl<Cart> implements C
 	}
 
 	@Override
-	public void order(Cart cart) throws ServiceException {
+	public String order(Cart cart) throws ServiceException {
+		String success = null;
 		try {
-			// Map<String, Object> callParams = new HashMap<String, Object>();
-			// callParams.put("quoteId", cart.getId());
-			// callParams.put("storeId", cart.getStoreId());
-
-			Boolean success = (Boolean) soapClient.callArgs(ResourcePath.ShoppingCartOrder, new Object[] { cart.getId(), cart.getStoreId() });
+			success = (String) soapClient.callArgs(ResourcePath.ShoppingCartOrder, new Object[] { cart.getId(), cart.getStoreId() });
 			// FIXME: getOrder...
-			if (!success) {
+			if (success == null || success.isEmpty()) {
 				throw new ServiceException("Could not create order from cart");
 			}
 		} catch (AxisFault e) {
@@ -183,6 +180,7 @@ public class CartRemoteServiceImpl extends GeneralServiceImpl<Cart> implements C
 			}
 			throw new ServiceException(e.getMessage());
 		}
+		return success;
 	}
 
 	@Override
@@ -268,6 +266,26 @@ public class CartRemoteServiceImpl extends GeneralServiceImpl<Cart> implements C
 		try {
 			String method = cart.getShippingMethod();
 			Boolean success = (Boolean) soapClient.callArgs(ResourcePath.ShoppingCartShippingMethod, new Object[] { cart.getId(), method, cart.getStoreId() });
+			if (!success) {
+				throw new ServiceException("Could not set shipping method information");
+			}
+		} catch (AxisFault e) {
+			if (debug) {
+				e.printStackTrace();
+			}
+			throw new ServiceException(e.getMessage());
+		}
+	}
+
+	@Override
+	public void setPaymentMethod(Cart cart) throws ServiceException {
+		try {
+			// List<Object> paymentData = new LinkedList<Object>();
+			Map<String, Object> paymentData = new HashMap<String, Object>();
+			paymentData.put("method", cart.getPaymentMethod());
+
+			Boolean success = (Boolean) soapClient.callArgs(ResourcePath.ShoppingCartPaymentMethod,
+					new Object[] { cart.getId(), paymentData, cart.getStoreId() });
 			if (!success) {
 				throw new ServiceException("Could not set shipping method information");
 			}
