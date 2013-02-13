@@ -263,4 +263,25 @@ public class CartRemoteServiceImpl extends GeneralServiceImpl<Cart> implements C
 		return totals;
 	}
 
+	@Override
+	public void setShippingMethod(Cart cart) throws ServiceException {
+		try {
+			List<Object> list = new LinkedList<Object>();
+			cart.getShippingAddress().setType(Type.Shipping);
+			cart.getBillingAddress().setType(Type.Billing);
+			list.add(cart.getShippingAddress().serializeToApi());
+			list.add(cart.getBillingAddress().serializeToApi());
+
+			Boolean success = (Boolean) soapClient.callArgs(ResourcePath.ShoppingCartCustomerAddresses, new Object[] { cart.getId(), list, cart.getStoreId() });
+			if (!success) {
+				throw new ServiceException("Could not set shipping method information");
+			}
+		} catch (AxisFault e) {
+			if (debug) {
+				e.printStackTrace();
+			}
+			throw new ServiceException(e.getMessage());
+		}
+	}
+
 }

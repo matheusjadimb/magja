@@ -21,7 +21,9 @@ public class ProductMedia extends BaseMagentoModel<Object[]> {
 	private static final long serialVersionUID = -7705516482921672346L;
 
 	public enum Type {
-		IMAGE, SMALL_IMAGE, THUMBNAIL;
+		IMAGE,
+		SMALL_IMAGE,
+		THUMBNAIL;
 
 		public static Type getValueOfString(String type) {
 			if (type.equals(IMAGE.toString().toLowerCase()))

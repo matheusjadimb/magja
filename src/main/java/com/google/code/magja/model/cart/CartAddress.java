@@ -86,7 +86,8 @@ public class CartAddress extends Address {
 
 	public static enum Type {
 
-		Billing("billing"), Shipping("shipping");
+		Billing("billing"),
+		Shipping("shipping");
 
 		private String name;
 

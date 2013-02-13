@@ -15,7 +15,9 @@ public class ProductAttribute extends BaseMagentoModel<Object[]> {
 	private static final long serialVersionUID = 7015962673006863327L;
 
 	public enum Scope {
-		STORE(0), GLOBAL(1), WEBSITE(2);
+		STORE(0),
+		GLOBAL(1),
+		WEBSITE(2);
 
 		private final Integer value;
 

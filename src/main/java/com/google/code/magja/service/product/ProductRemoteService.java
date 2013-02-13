@@ -21,7 +21,12 @@ import com.google.code.magja.service.product.ProductRemoteService.Dependency;
 public interface ProductRemoteService extends GeneralService<Product> {
 
 	public static enum Dependency {
-		CATEGORIES, MEDIAS, LINKS, TYPES, ATTRIBUTE_SET, INVENTORY
+		CATEGORIES,
+		MEDIAS,
+		LINKS,
+		TYPES,
+		ATTRIBUTE_SET,
+		INVENTORY
 	};
 
 	/**

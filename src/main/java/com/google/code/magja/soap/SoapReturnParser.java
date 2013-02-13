@@ -33,7 +33,12 @@ public class SoapReturnParser {
 	private static final String NAMESPACE_URI_SOAPENC = "http://schemas.xmlsoap.org/soap/encoding/";
 
 	private enum Type {
-		StringType, IntegerType, FloatType, BooleanType, ArrayType, MapType
+		StringType,
+		IntegerType,
+		FloatType,
+		BooleanType,
+		ArrayType,
+		MapType
 	}
 
 	private OMNamespace xsi;

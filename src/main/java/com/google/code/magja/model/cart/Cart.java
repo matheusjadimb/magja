@@ -58,6 +58,8 @@ public class Cart extends BaseMagentoModel {
 
 	private CartAddress billingaddress;
 
+	private String shippingMethod;
+
 	public static Cart fromAttributes(Map<String, Object> attrs) {
 		Cart c = new Cart();
 
@@ -198,11 +200,18 @@ public class Cart extends BaseMagentoModel {
 		this.customerIsGuest = customerIsGuest;
 	}
 
+	public String getShippingMethod() {
+		return shippingMethod;
+	}
+
+	public void setShippingMethod(String method) {
+		this.shippingMethod = method;
+	}
+
 	@Override
 	public String toString() {
 		return "Cart [" + "quoteId=" + getId() + ", storeId=" + storeId + ", isActive=" + isActive + ", isVirtual=" + isVirtual + ", customer=" + customer
-				+ ", customerIsGuest=" + customerIsGuest + ", shippingAddress=" + shippingAddress + ", billingAddress=" + billingaddress + ", properties="
-				+ properties + "]";
-
+				+ ", customerIsGuest=" + customerIsGuest + ", shippingAddress=" + shippingAddress + ", shippingMethod=" + shippingMethod + ", billingAddress="
+				+ billingaddress + ", properties=" + properties + "]";
 	}
 }

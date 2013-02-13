@@ -13,7 +13,10 @@ public class ProductLink extends BaseMagentoModel {
 	private static final long serialVersionUID = 189811375354364842L;
 
 	public enum LinkType {
-		RELATED, UP_SELL, CROSS_SELL, GROUPED;
+		RELATED,
+		UP_SELL,
+		CROSS_SELL,
+		GROUPED;
 
 		public static LinkType getValueOfString(String linkType) {
 			if (linkType.equals(RELATED.toString().toLowerCase()))

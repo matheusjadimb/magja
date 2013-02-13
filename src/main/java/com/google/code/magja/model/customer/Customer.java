@@ -16,7 +16,8 @@ public class Customer extends BaseMagentoModel {
 	private static final long serialVersionUID = 7260666195808816927L;
 
 	public enum Gender {
-		MALE(1), FEMALE(2);
+		MALE(1),
+		FEMALE(2);
 		private final Integer value;
 
 		private Gender(Integer value) {

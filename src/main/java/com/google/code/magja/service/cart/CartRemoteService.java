@@ -97,4 +97,6 @@ public interface CartRemoteService extends GeneralService<Cart> {
 	 */
 	public abstract void addProduct(Cart cart, Product product, double quantity) throws ServiceException;
 
+	public abstract void setShippingMethod(Cart cart) throws ServiceException;
+
 }
