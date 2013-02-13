@@ -37,11 +37,10 @@ import com.google.code.magja.soap.MagentoSoapClient;
  * @author schneider
  * 
  */
-public class CartRemoteServiceImpl extends GeneralServiceImpl<Cart> implements
-		CartRemoteService {
+public class CartRemoteServiceImpl extends GeneralServiceImpl<Cart> implements CartRemoteService {
 
 	private static final long serialVersionUID = -7418788716423153907L;
-	
+
 	public CartRemoteServiceImpl(MagentoSoapClient soapClient) {
 		super(soapClient);
 	}
@@ -49,8 +48,7 @@ public class CartRemoteServiceImpl extends GeneralServiceImpl<Cart> implements
 	@Override
 	public Cart create(Integer storeId) throws ServiceException {
 		try {
-			Integer id = soapClient.callSingle(
-					ResourcePath.ShoppingCartCreate, storeId);
+			Integer id = soapClient.callSingle(ResourcePath.ShoppingCartCreate, storeId);
 			Cart cart = new Cart();
 			cart.setId(id);
 			cart.setStoreId(storeId);
@@ -77,16 +75,20 @@ public class CartRemoteServiceImpl extends GeneralServiceImpl<Cart> implements
 				customerProps.put("customer_id", customerId);
 			} else {
 				// TODO: mode=guest, register
-				throw new ServiceException(
-						"Customer must exist; modes [guest|register] not supported yet");
+				throw new ServiceException("Customer must exist; modes [guest|register] not supported yet");
 			}
 
 			callParams.put("quoteId", cart.getId());
 			callParams.put("customer", customerProps);
 			callParams.put("storeId", cart.getStoreId());
 
-			Boolean success = (Boolean) soapClient.callSingle(
-					ResourcePath.ShoppingCartCustomerSet, callParams);
+			List<Object> list = new LinkedList<Object>();
+			list.add(cart.getId());
+
+			Boolean success = (Boolean) soapClient.callArgs(ResourcePath.ShoppingCartCustomerSet, new Object[] { cart.getId(), customerProps });
+			// Boolean success = (Boolean)
+			// soapClient.callSingle(ResourcePath.ShoppingCartCustomerSet,
+			// cart.getId());
 			if (!success) {
 				throw new ServiceException("Could not set customer");
 			}
@@ -107,8 +109,7 @@ public class CartRemoteServiceImpl extends GeneralServiceImpl<Cart> implements
 			Map<String, Object> callParams = new HashMap<String, Object>();
 			callParams.put("quoteId", cart.getId());
 			callParams.put("storeId", cart.getStoreId());
-			result = (LinkedList<Object>) soapClient.callSingle(
-					ResourcePath.ShoppingCartLicenseAgreement, callParams);
+			result = (LinkedList<Object>) soapClient.callSingle(ResourcePath.ShoppingCartLicenseAgreement, callParams);
 		} catch (AxisFault e) {
 			if (debug) {
 				e.printStackTrace();
@@ -129,8 +130,7 @@ public class CartRemoteServiceImpl extends GeneralServiceImpl<Cart> implements
 			Map<String, Object> callParams = new HashMap<String, Object>();
 			callParams.put("quoteId", cart.getId());
 			callParams.put("storeId", cart.getStoreId());
-			result = (LinkedList<Object>) soapClient.callSingle(
-					ResourcePath.ShoppingCartTotals, callParams);
+			result = (LinkedList<Object>) soapClient.callSingle(ResourcePath.ShoppingCartTotals, callParams);
 		} catch (AxisFault e) {
 			if (debug) {
 				e.printStackTrace();
@@ -151,8 +151,7 @@ public class CartRemoteServiceImpl extends GeneralServiceImpl<Cart> implements
 			Map<String, Object> callParams = new HashMap<String, Object>();
 			callParams.put("quoteId", id);
 			callParams.put("storeId", storeId.toString());
-			result = (Map<String, Object>) soapClient.callSingle(
-					ResourcePath.ShoppingCartInfo, callParams);
+			result = (Map<String, Object>) soapClient.callSingle(ResourcePath.ShoppingCartInfo, callParams);
 		} catch (AxisFault e) {
 			if (debug) {
 				e.printStackTrace();
@@ -169,12 +168,11 @@ public class CartRemoteServiceImpl extends GeneralServiceImpl<Cart> implements
 	@Override
 	public void order(Cart cart) throws ServiceException {
 		try {
-			Map<String, Object> callParams = new HashMap<String, Object>();
-			callParams.put("quoteId", cart.getId());
-			callParams.put("storeId", cart.getStoreId());
+//			Map<String, Object> callParams = new HashMap<String, Object>();
+//			callParams.put("quoteId", cart.getId());
+//			callParams.put("storeId", cart.getStoreId());
 
-			Boolean success = (Boolean) soapClient.callSingle(
-					ResourcePath.ShoppingCartOrder, callParams);
+			Boolean success = (Boolean) soapClient.callArgs(ResourcePath.ShoppingCartOrder, new Object[] { cart.getId(), cart.getStoreId() });
 			// FIXME: getOrder...
 			if (!success) {
 				throw new ServiceException("Could not create order from cart");
@@ -196,18 +194,14 @@ public class CartRemoteServiceImpl extends GeneralServiceImpl<Cart> implements
 			list.add(cart.getShippingAddress().serializeToApi());
 			list.add(cart.getBillingAddress().serializeToApi());
 
-//			List<Object> params = new LinkedList<Object>();
-//			params.add(cart.getId());
-//			params.add(list);
-//			params.add(cart.getStoreId());
+			// List<Object> params = new LinkedList<Object>();
+			// params.add(cart.getId());
+			// params.add(list);
+			// params.add(cart.getStoreId());
 
-			Boolean success = (Boolean) soapClient.callArgs(
-					ResourcePath.ShoppingCartCustomerAddresses, new Object[] {
-							cart.getId(), list, cart.getStoreId()
-					});
+			Boolean success = (Boolean) soapClient.callArgs(ResourcePath.ShoppingCartCustomerAddresses, new Object[] { cart.getId(), list, cart.getStoreId() });
 			if (!success) {
-				throw new ServiceException(
-						"Could not set cart address information");
+				throw new ServiceException("Could not set cart address information");
 			}
 		} catch (AxisFault e) {
 			if (debug) {
@@ -218,27 +212,23 @@ public class CartRemoteServiceImpl extends GeneralServiceImpl<Cart> implements
 	}
 
 	@Override
-	public void addProduct(Cart cart, Product product, double quantity)
-			throws ServiceException {
+	public void addProduct(Cart cart, Product product, double quantity) throws ServiceException {
 		// FIXME: product options
 		try {
-//			List<Object> params = new LinkedList<Object>();
-//
-//			params.add(cart.getId());
-//
+			// List<Object> params = new LinkedList<Object>();
+			//
+			// params.add(cart.getId());
+			//
 			Map<String, Object> props = new HashMap<String, Object>();
 			props.put("product_id", product.getId());
 			props.put("qty", quantity);
 			List<Object> list = new LinkedList<Object>();
 			list.add(props);
-//			params.add(props);
-//
-//			params.add(cart.getStoreId());
+			// params.add(props);
+			//
+			// params.add(cart.getStoreId());
 
-			Boolean success = (Boolean) soapClient.callArgs(
-					ResourcePath.ShoppingCartProductAdd, new Object[] {
-							cart.getId(), list, cart.getStoreId()
-					});
+			Boolean success = (Boolean) soapClient.callArgs(ResourcePath.ShoppingCartProductAdd, new Object[] { cart.getId(), list, cart.getStoreId() });
 			if (!success) {
 				throw new ServiceException("Could not add product");
 			}
