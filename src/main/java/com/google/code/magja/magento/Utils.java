@@ -82,17 +82,17 @@ public class Utils {
 
 	public static String getMd5Hash(String plaintext) {
 		try {
-            MessageDigest md5 = MessageDigest.getInstance("MD5");
-            md5.reset();
-            md5.update(plaintext.getBytes());
-            byte[] digest = md5.digest();
-            BigInteger bigInt = new BigInteger(1, digest);
-            String hashtext = bigInt.toString(16);
+			MessageDigest md5 = MessageDigest.getInstance("MD5");
+			md5.reset();
+			md5.update(plaintext.getBytes());
+			byte[] digest = md5.digest();
+			BigInteger bigInt = new BigInteger(1, digest);
+			String hashtext = bigInt.toString(16);
 
-            // we need to zero pad it to use the full 32 chars
-            while (hashtext.length() < 32) {
-                hashtext = "0" + hashtext;
-            }
+			// we need to zero pad it to use the full 32 chars
+			while (hashtext.length() < 32) {
+				hashtext = "0" + hashtext;
+			}
 
 			return hashtext;
 		} catch (final NoSuchAlgorithmException e) {

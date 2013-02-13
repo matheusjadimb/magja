@@ -11,7 +11,7 @@ import com.google.code.magja.model.BaseMagentoModel;
 
 public class CategoryAttribute extends BaseMagentoModel {
 
-	private static final long serialVersionUID=-6951641506668926740L;
+	private static final long serialVersionUID = -6951641506668926740L;
 
 	private String scope;
 
@@ -23,7 +23,9 @@ public class CategoryAttribute extends BaseMagentoModel {
 
 	private List<CategoryAttributeOption> options = new ArrayList<CategoryAttributeOption>();
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.google.code.magja.model.BaseMagentoModel#serializeToApi()
 	 */
 	@Override
@@ -40,7 +42,8 @@ public class CategoryAttribute extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param scope the scope to set
+	 * @param scope
+	 *            the scope to set
 	 */
 	public void setScope(String scope) {
 		this.scope = scope;
@@ -54,7 +57,8 @@ public class CategoryAttribute extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param code the code to set
+	 * @param code
+	 *            the code to set
 	 */
 	public void setCode(String code) {
 		this.code = code;
@@ -68,7 +72,8 @@ public class CategoryAttribute extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param required the required to set
+	 * @param required
+	 *            the required to set
 	 */
 	public void setRequired(Boolean required) {
 		this.required = required;
@@ -82,7 +87,8 @@ public class CategoryAttribute extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param type the type to set
+	 * @param type
+	 *            the type to set
 	 */
 	public void setType(String type) {
 		this.type = type;
@@ -96,13 +102,16 @@ public class CategoryAttribute extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param options the options to set
+	 * @param options
+	 *            the options to set
 	 */
 	public void setOptions(List<CategoryAttributeOption> options) {
 		this.options = options;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -111,14 +120,15 @@ public class CategoryAttribute extends BaseMagentoModel {
 		int result = super.hashCode();
 		result = prime * result + ((code == null) ? 0 : code.hashCode());
 		result = prime * result + ((options == null) ? 0 : options.hashCode());
-		result = prime * result
-				+ ((required == null) ? 0 : required.hashCode());
+		result = prime * result + ((required == null) ? 0 : required.hashCode());
 		result = prime * result + ((scope == null) ? 0 : scope.hashCode());
 		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -158,14 +168,15 @@ public class CategoryAttribute extends BaseMagentoModel {
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "CategoryAttribute [code=" + code + ", options=" + options
-				+ ", required=" + required + ", scope=" + scope + ", type="
-				+ type + ", id=" + id + "]";
+		return "CategoryAttribute [code=" + code + ", options=" + options + ", required=" + required + ", scope=" + scope + ", type=" + type + ", id=" + id
+				+ "]";
 	}
 
 }

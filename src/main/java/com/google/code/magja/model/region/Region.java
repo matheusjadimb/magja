@@ -8,7 +8,7 @@ import com.google.code.magja.model.BaseMagentoModel;
 
 public class Region extends BaseMagentoModel {
 
-	private static final long serialVersionUID=4831876724967628838L;
+	private static final long serialVersionUID = 4831876724967628838L;
 
 	private String name;
 
@@ -16,7 +16,7 @@ public class Region extends BaseMagentoModel {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see com.google.code.magja.model.BaseMagentoModel#serializeToApi()
 	 */
 	@Override
@@ -56,7 +56,7 @@ public class Region extends BaseMagentoModel {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -70,7 +70,7 @@ public class Region extends BaseMagentoModel {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -97,7 +97,7 @@ public class Region extends BaseMagentoModel {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

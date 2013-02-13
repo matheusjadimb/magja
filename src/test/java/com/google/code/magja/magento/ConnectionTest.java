@@ -15,7 +15,7 @@ import com.google.code.magja.soap.SoapClient;
 
 /**
  * @author andre
- *
+ * 
  */
 public class ConnectionTest {
 
@@ -29,7 +29,6 @@ public class ConnectionTest {
 			System.out.println(map.toString());
 		}
 	}
-
 
 	@Test
 	public void testConnectionRepeatCallsInSameSession() {
@@ -55,7 +54,6 @@ public class ConnectionTest {
 			System.out.println("*** DEBUG *** Perform test 4");
 			Object res4 = client.callSingle(ResourcePath.ProductList, "");
 			System.out.println("*** DEBUG *** result 4: " + res4.toString());
-
 
 		} catch (AxisFault e) {
 			fail(e.getMessage());
@@ -90,7 +88,6 @@ public class ConnectionTest {
 		} catch (AxisFault e) {
 			fail(e.getMessage());
 		}
-
 
 	}
 

@@ -22,7 +22,7 @@ public class MagjaStringUtils {
 	public static String randomString(int length) {
 
 		StringBuffer sb = new StringBuffer();
-		for(int i = length; i > 0; i -= 12){
+		for (int i = length; i > 0; i -= 12) {
 			int n = min(12, abs(i));
 			sb.append(leftPad(Long.toString(round(random() * pow(36, n)), 36), n, '0'));
 		}
@@ -41,8 +41,8 @@ public class MagjaStringUtils {
 	public static String randomString(int lo, int hi) {
 		int n = MagjaNumberUtils.randomInteger(lo, hi);
 		byte b[] = new byte[n];
-		for(int i = 0; i < n; i++)
-			b[i] = (byte)MagjaNumberUtils.randomInteger('a', 'z');
+		for (int i = 0; i < n; i++)
+			b[i] = (byte) MagjaNumberUtils.randomInteger('a', 'z');
 		return new String(b, 0);
 	}
 
@@ -54,8 +54,8 @@ public class MagjaStringUtils {
 
 		boolean ret = false;
 
-		if(s != null && !"".equals(s)){
-			if(!s.trim().equals(""))
+		if (s != null && !"".equals(s)) {
+			if (!s.trim().equals(""))
 				ret = true;
 		}
 
@@ -67,9 +67,9 @@ public class MagjaStringUtils {
 	 * @return true if the string is empty or null
 	 */
 	public static boolean isEmptyOrNullString(String s) {
-		if(s == null)
+		if (s == null)
 			return true;
-		else if("".equals(s.trim()))
+		else if ("".equals(s.trim()))
 			return true;
 
 		return false;

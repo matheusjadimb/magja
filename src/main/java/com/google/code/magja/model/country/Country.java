@@ -8,7 +8,7 @@ import com.google.code.magja.model.BaseMagentoModel;
 
 public class Country extends BaseMagentoModel {
 
-	private static final long serialVersionUID=7345606611959211286L;
+	private static final long serialVersionUID = 7345606611959211286L;
 
 	private String countryId;
 
@@ -18,7 +18,9 @@ public class Country extends BaseMagentoModel {
 
 	private String iso2Code;
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.google.code.magja.model.BaseMagentoModel#serializeToApi()
 	 */
 	@Override
@@ -34,7 +36,8 @@ public class Country extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param countryId the countryId to set
+	 * @param countryId
+	 *            the countryId to set
 	 */
 	public void setCountryId(String countryId) {
 		this.countryId = countryId;
@@ -48,7 +51,8 @@ public class Country extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -62,7 +66,8 @@ public class Country extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param iso3Code the iso3Code to set
+	 * @param iso3Code
+	 *            the iso3Code to set
 	 */
 	public void setIso3Code(String iso3Code) {
 		this.iso3Code = iso3Code;
@@ -76,30 +81,32 @@ public class Country extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param iso2Code the iso2Code to set
+	 * @param iso2Code
+	 *            the iso2Code to set
 	 */
 	public void setIso2Code(String iso2Code) {
 		this.iso2Code = iso2Code;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result
-				+ ((countryId == null) ? 0 : countryId.hashCode());
-		result = prime * result
-				+ ((iso2Code == null) ? 0 : iso2Code.hashCode());
-		result = prime * result
-				+ ((iso3Code == null) ? 0 : iso3Code.hashCode());
+		result = prime * result + ((countryId == null) ? 0 : countryId.hashCode());
+		result = prime * result + ((iso2Code == null) ? 0 : iso2Code.hashCode());
+		result = prime * result + ((iso3Code == null) ? 0 : iso3Code.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -134,13 +141,14 @@ public class Country extends BaseMagentoModel {
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Country [countryId=" + countryId + ", iso2Code=" + iso2Code
-				+ ", iso3Code=" + iso3Code + ", name=" + name;
+		return "Country [countryId=" + countryId + ", iso2Code=" + iso2Code + ", iso3Code=" + iso3Code + ", name=" + name;
 	}
 
 }

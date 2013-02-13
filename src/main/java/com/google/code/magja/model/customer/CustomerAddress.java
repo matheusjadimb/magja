@@ -12,7 +12,7 @@ import com.google.code.magja.model.address.Address;
 
 public class CustomerAddress extends Address<Object[]> {
 
-	private static final long serialVersionUID=-7194400140257435078L;
+	private static final long serialVersionUID = -7194400140257435078L;
 
 	private Customer customer;
 
@@ -20,7 +20,9 @@ public class CustomerAddress extends Address<Object[]> {
 
 	private Boolean defaultShipping;
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.google.code.magja.model.BaseMagentoModel#serializeToApi()
 	 */
 	@Override
@@ -31,12 +33,13 @@ public class CustomerAddress extends Address<Object[]> {
 
 		List<Object> params = new LinkedList<Object>();
 
-		// if its a update (id != null), put the address id, otherwise (create) put the customer id
+		// if its a update (id != null), put the address id, otherwise (create)
+		// put the customer id
 		params.add((this.id != null ? this.id : customer.getId()));
 
 		params.add(props);
 
-		return new Object[] {params};
+		return new Object[] { params };
 	}
 
 	/**
@@ -47,7 +50,8 @@ public class CustomerAddress extends Address<Object[]> {
 	}
 
 	/**
-	 * @param defaultBilling the defaultBilling to set
+	 * @param defaultBilling
+	 *            the defaultBilling to set
 	 */
 	public void setDefaultBilling(Boolean defaultBilling) {
 		this.defaultBilling = defaultBilling;
@@ -61,7 +65,8 @@ public class CustomerAddress extends Address<Object[]> {
 	}
 
 	/**
-	 * @param defaultShipping the defaultShipping to set
+	 * @param defaultShipping
+	 *            the defaultShipping to set
 	 */
 	public void setDefaultShipping(Boolean defaultShipping) {
 		this.defaultShipping = defaultShipping;
@@ -75,29 +80,31 @@ public class CustomerAddress extends Address<Object[]> {
 	}
 
 	/**
-	 * @param customer the customer to set
+	 * @param customer
+	 *            the customer to set
 	 */
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result
-				+ ((customer == null) ? 0 : customer.hashCode());
-		result = prime * result
-				+ ((defaultBilling == null) ? 0 : defaultBilling.hashCode());
-		result = prime * result
-				+ ((defaultShipping == null) ? 0 : defaultShipping.hashCode());
+		result = prime * result + ((customer == null) ? 0 : customer.hashCode());
+		result = prime * result + ((defaultBilling == null) ? 0 : defaultBilling.hashCode());
+		result = prime * result + ((defaultShipping == null) ? 0 : defaultShipping.hashCode());
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -127,19 +134,16 @@ public class CustomerAddress extends Address<Object[]> {
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "CustomerAddress [defaultBilling="
-				+ defaultBilling + ", defaultShipping=" + defaultShipping
-				+ ", city=" + city + ", company=" + company + ", countryCode="
-				+ countryCode + ", fax=" + fax + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", middleName=" + middleName
-				+ ", postCode=" + postCode + ", prefix=" + prefix + ", region="
-				+ region + ", street=" + street + ", suffix=" + suffix
-				+ ", telephone=" + telephone + ", id=" + id + ", properties="
-				+ properties + "]";
+		return "CustomerAddress [defaultBilling=" + defaultBilling + ", defaultShipping=" + defaultShipping + ", city=" + city + ", company=" + company
+				+ ", countryCode=" + countryCode + ", fax=" + fax + ", firstName=" + firstName + ", lastName=" + lastName + ", middleName=" + middleName
+				+ ", postCode=" + postCode + ", prefix=" + prefix + ", region=" + region + ", street=" + street + ", suffix=" + suffix + ", telephone="
+				+ telephone + ", id=" + id + ", properties=" + properties + "]";
 	}
 }

@@ -8,7 +8,7 @@ import com.google.code.magja.model.BaseMagentoModel;
 
 public class ShipmentTrack extends BaseMagentoModel {
 
-	private static final long serialVersionUID=6249765657950601996L;
+	private static final long serialVersionUID = 6249765657950601996L;
 
 	private String number;
 
@@ -16,7 +16,9 @@ public class ShipmentTrack extends BaseMagentoModel {
 
 	private String carrier;
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.google.code.magja.model.BaseMagentoModel#serializeToApi()
 	 */
 	@Override
@@ -32,7 +34,8 @@ public class ShipmentTrack extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param number the number to set
+	 * @param number
+	 *            the number to set
 	 */
 	public void setNumber(String number) {
 		this.number = number;
@@ -46,7 +49,8 @@ public class ShipmentTrack extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param title the title to set
+	 * @param title
+	 *            the title to set
 	 */
 	public void setTitle(String title) {
 		this.title = title;
@@ -60,13 +64,16 @@ public class ShipmentTrack extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param carrier the carrier to set
+	 * @param carrier
+	 *            the carrier to set
 	 */
 	public void setCarrier(String carrier) {
 		this.carrier = carrier;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -79,7 +86,9 @@ public class ShipmentTrack extends BaseMagentoModel {
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -109,13 +118,13 @@ public class ShipmentTrack extends BaseMagentoModel {
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "ShipmentTrack [carrier=" + carrier + ", number=" + number
-				+ ", title=" + title + ", id=" + id + ", properties="
-				+ properties + "]";
+		return "ShipmentTrack [carrier=" + carrier + ", number=" + number + ", title=" + title + ", id=" + id + ", properties=" + properties + "]";
 	}
 }

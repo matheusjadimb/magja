@@ -11,6 +11,7 @@ public interface SoapClient {
 
 	/**
 	 * Call Magento API with multiple arguments.
+	 * 
 	 * @param path
 	 * @param args
 	 * @return
@@ -20,6 +21,7 @@ public interface SoapClient {
 
 	/**
 	 * Call Magento API with single argument.
+	 * 
 	 * @param path
 	 * @param arg
 	 * @return
@@ -28,7 +30,7 @@ public interface SoapClient {
 	<T, R> R callSingle(ResourcePath path, T arg) throws AxisFault;
 
 	<R> R callNoArgs(ResourcePath path) throws AxisFault;
-	
+
 	Object multiCall(List<ResourcePath> path, List<Object> args) throws AxisFault;
-	
+
 }

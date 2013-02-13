@@ -28,9 +28,9 @@ public class SoapConfig implements Serializable {
 	private Integer defaultAttributeSetId;
 
 	private Integer defaultRootCategoryId;
-	
+
 	private HttpConnectionManagerParams httpConnectionManagerParams = new HttpConnectionManagerParams();
-	
+
 	public SoapConfig(String apiUser, String apiKey, String remoteHost) {
 		super();
 		this.apiUser = apiUser;
@@ -40,17 +40,15 @@ public class SoapConfig implements Serializable {
 		this.defaultRootCategoryId = 2;
 	}
 
-    public SoapConfig() {
-    }
+	public SoapConfig() {
+	}
 
-    public SoapConfig(Properties properties) {
+	public SoapConfig(Properties properties) {
 		this.apiUser = properties.getProperty(MAGENTO_API_USERNAME);
 		this.apiKey = properties.getProperty(MAGENTO_API_PASSWORD);
 		this.remoteHost = properties.getProperty(MAGENTO_API_URL);
-		this.defaultAttributeSetId = Integer.parseInt(properties
-				.getProperty(DEFAULT_ATTRIBUTE_SET_ID));
-		this.defaultRootCategoryId = Integer.parseInt(properties
-				.getProperty(DEFAULT_ROOT_CATEGORY_ID));
+		this.defaultAttributeSetId = Integer.parseInt(properties.getProperty(DEFAULT_ATTRIBUTE_SET_ID));
+		this.defaultRootCategoryId = Integer.parseInt(properties.getProperty(DEFAULT_ROOT_CATEGORY_ID));
 	}
 
 	/**
@@ -139,16 +137,9 @@ public class SoapConfig implements Serializable {
 		int result = 1;
 		result = prime * result + ((apiKey == null) ? 0 : apiKey.hashCode());
 		result = prime * result + ((apiUser == null) ? 0 : apiUser.hashCode());
-		result = prime
-				* result
-				+ ((defaultAttributeSetId == null) ? 0 : defaultAttributeSetId
-						.hashCode());
-		result = prime
-				* result
-				+ ((defaultRootCategoryId == null) ? 0 : defaultRootCategoryId
-						.hashCode());
-		result = prime * result
-				+ ((remoteHost == null) ? 0 : remoteHost.hashCode());
+		result = prime * result + ((defaultAttributeSetId == null) ? 0 : defaultAttributeSetId.hashCode());
+		result = prime * result + ((defaultRootCategoryId == null) ? 0 : defaultRootCategoryId.hashCode());
+		result = prime * result + ((remoteHost == null) ? 0 : remoteHost.hashCode());
 		return result;
 	}
 
@@ -201,23 +192,20 @@ public class SoapConfig implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "SoapConfig [apiUser=" + apiUser + ", apiKey=" + apiKey
-				+ ", remoteHost=" + remoteHost + ", defaultAttributeSetId="
-				+ defaultAttributeSetId + ", defaultRootCategoryId="
-				+ defaultRootCategoryId + "]";
+		return "SoapConfig [apiUser=" + apiUser + ", apiKey=" + apiKey + ", remoteHost=" + remoteHost + ", defaultAttributeSetId=" + defaultAttributeSetId
+				+ ", defaultRootCategoryId=" + defaultRootCategoryId + "]";
 	}
 
 	public HttpConnectionManagerParams getHttpConnectionManagerParams() {
 		return httpConnectionManagerParams;
 	}
 
-	public void setHttpConnectionManagerParams(
-			HttpConnectionManagerParams httpConnectionManagerParams) {
+	public void setHttpConnectionManagerParams(HttpConnectionManagerParams httpConnectionManagerParams) {
 		this.httpConnectionManagerParams = httpConnectionManagerParams;
 	}
-	
+
 	public void setDefaultMaxConnectionsPerHost(int maxConnectionsPerHost) {
-		getHttpConnectionManagerParams().setDefaultMaxConnectionsPerHost(maxConnectionsPerHost);		
+		getHttpConnectionManagerParams().setDefaultMaxConnectionsPerHost(maxConnectionsPerHost);
 	}
 
 }

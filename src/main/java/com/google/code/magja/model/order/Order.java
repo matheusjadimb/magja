@@ -12,11 +12,11 @@ import java.util.List;
 
 public class Order extends BaseMagentoModel {
 
-	private static final long serialVersionUID=4199906698069050318L;
+	private static final long serialVersionUID = 4199906698069050318L;
 
-    private String orderNumber;
-    private String parentOrderNumber;
-    private Integer parentOrderId;
+	private String orderNumber;
+	private String parentOrderNumber;
+	private Integer parentOrderId;
 
 	private String storeName;
 
@@ -72,7 +72,7 @@ public class Order extends BaseMagentoModel {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see com.google.code.magja.model.BaseMagentoModel#serializeToApi()
 	 */
 	@Override
@@ -470,119 +470,113 @@ public class Order extends BaseMagentoModel {
 		this.items = items;
 	}
 
-    public String getOrderNumber() {
-        return orderNumber;
-    }
+	public String getOrderNumber() {
+		return orderNumber;
+	}
 
-    public void setOrderNumber(String orderNumber) {
-        this.orderNumber = orderNumber;
-    }
+	public void setOrderNumber(String orderNumber) {
+		this.orderNumber = orderNumber;
+	}
 
-    public String getParentOrderNumber() {
-        return parentOrderNumber;
-    }
+	public String getParentOrderNumber() {
+		return parentOrderNumber;
+	}
 
-    public void setParentOrderNumber(String parentOrderNumber) {
-        this.parentOrderNumber = parentOrderNumber;
-    }
+	public void setParentOrderNumber(String parentOrderNumber) {
+		this.parentOrderNumber = parentOrderNumber;
+	}
 
-    public Integer getParentOrderId() {
-        return parentOrderId;
-    }
+	public Integer getParentOrderId() {
+		return parentOrderId;
+	}
 
-    public void setParentOrderId(Integer parentOrderId) {
-        this.parentOrderId = parentOrderId;
-    }
+	public void setParentOrderId(Integer parentOrderId) {
+		this.parentOrderId = parentOrderId;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Order)) return false;
-        if (!super.equals(o)) return false;
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (!(o instanceof Order))
+			return false;
+		if (!super.equals(o))
+			return false;
 
-        Order order = (Order) o;
+		Order order = (Order) o;
 
-        if (billingAddress != null ? !billingAddress.equals(order.billingAddress) : order.billingAddress != null)
-            return false;
-        if (customer != null ? !customer.equals(order.customer) : order.customer != null) return false;
-        if (customerIsGuest != null ? !customerIsGuest.equals(order.customerIsGuest) : order.customerIsGuest != null)
-            return false;
-        if (discountAmount != null ? !discountAmount.equals(order.discountAmount) : order.discountAmount != null)
-            return false;
-        if (emailSent != null ? !emailSent.equals(order.emailSent) : order.emailSent != null) return false;
-        if (grandTotal != null ? !grandTotal.equals(order.grandTotal) : order.grandTotal != null) return false;
-        if (items != null ? !items.equals(order.items) : order.items != null) return false;
-        if (orderNumber != null ? !orderNumber.equals(order.orderNumber) : order.orderNumber != null) return false;
-        if (parentOrderId != null ? !parentOrderId.equals(order.parentOrderId) : order.parentOrderId != null)
-            return false;
-        if (parentOrderNumber != null ? !parentOrderNumber.equals(order.parentOrderNumber) : order.parentOrderNumber != null)
-            return false;
-        if (shippingAddress != null ? !shippingAddress.equals(order.shippingAddress) : order.shippingAddress != null)
-            return false;
-        if (shippingAmount != null ? !shippingAmount.equals(order.shippingAmount) : order.shippingAmount != null)
-            return false;
-        if (shippingDescription != null ? !shippingDescription.equals(order.shippingDescription) : order.shippingDescription != null)
-            return false;
-        if (shippingMethod != null ? !shippingMethod.equals(order.shippingMethod) : order.shippingMethod != null)
-            return false;
-        if (shippingTaxAmount != null ? !shippingTaxAmount.equals(order.shippingTaxAmount) : order.shippingTaxAmount != null)
-            return false;
-        if (shippingTaxRefunded != null ? !shippingTaxRefunded.equals(order.shippingTaxRefunded) : order.shippingTaxRefunded != null)
-            return false;
-        if (state != null ? !state.equals(order.state) : order.state != null) return false;
-        if (status != null ? !status.equals(order.status) : order.status != null) return false;
-        if (storeName != null ? !storeName.equals(order.storeName) : order.storeName != null) return false;
-        if (subtotal != null ? !subtotal.equals(order.subtotal) : order.subtotal != null) return false;
-        if (taxAmount != null ? !taxAmount.equals(order.taxAmount) : order.taxAmount != null) return false;
-        if (totalCanceled != null ? !totalCanceled.equals(order.totalCanceled) : order.totalCanceled != null)
-            return false;
-        if (totalInvoiced != null ? !totalInvoiced.equals(order.totalInvoiced) : order.totalInvoiced != null)
-            return false;
-        if (totalOfflineRefunded != null ? !totalOfflineRefunded.equals(order.totalOfflineRefunded) : order.totalOfflineRefunded != null)
-            return false;
-        if (totalOnlineRefunded != null ? !totalOnlineRefunded.equals(order.totalOnlineRefunded) : order.totalOnlineRefunded != null)
-            return false;
-        if (totalPaid != null ? !totalPaid.equals(order.totalPaid) : order.totalPaid != null) return false;
-        if (totalQtyOrdered != null ? !totalQtyOrdered.equals(order.totalQtyOrdered) : order.totalQtyOrdered != null)
-            return false;
-        if (totalRefunded != null ? !totalRefunded.equals(order.totalRefunded) : order.totalRefunded != null)
-            return false;
-        if (weight != null ? !weight.equals(order.weight) : order.weight != null) return false;
+		if (billingAddress != null ? !billingAddress.equals(order.billingAddress) : order.billingAddress != null)
+			return false;
+		if (customer != null ? !customer.equals(order.customer) : order.customer != null)
+			return false;
+		if (customerIsGuest != null ? !customerIsGuest.equals(order.customerIsGuest) : order.customerIsGuest != null)
+			return false;
+		if (discountAmount != null ? !discountAmount.equals(order.discountAmount) : order.discountAmount != null)
+			return false;
+		if (emailSent != null ? !emailSent.equals(order.emailSent) : order.emailSent != null)
+			return false;
+		if (grandTotal != null ? !grandTotal.equals(order.grandTotal) : order.grandTotal != null)
+			return false;
+		if (items != null ? !items.equals(order.items) : order.items != null)
+			return false;
+		if (orderNumber != null ? !orderNumber.equals(order.orderNumber) : order.orderNumber != null)
+			return false;
+		if (parentOrderId != null ? !parentOrderId.equals(order.parentOrderId) : order.parentOrderId != null)
+			return false;
+		if (parentOrderNumber != null ? !parentOrderNumber.equals(order.parentOrderNumber) : order.parentOrderNumber != null)
+			return false;
+		if (shippingAddress != null ? !shippingAddress.equals(order.shippingAddress) : order.shippingAddress != null)
+			return false;
+		if (shippingAmount != null ? !shippingAmount.equals(order.shippingAmount) : order.shippingAmount != null)
+			return false;
+		if (shippingDescription != null ? !shippingDescription.equals(order.shippingDescription) : order.shippingDescription != null)
+			return false;
+		if (shippingMethod != null ? !shippingMethod.equals(order.shippingMethod) : order.shippingMethod != null)
+			return false;
+		if (shippingTaxAmount != null ? !shippingTaxAmount.equals(order.shippingTaxAmount) : order.shippingTaxAmount != null)
+			return false;
+		if (shippingTaxRefunded != null ? !shippingTaxRefunded.equals(order.shippingTaxRefunded) : order.shippingTaxRefunded != null)
+			return false;
+		if (state != null ? !state.equals(order.state) : order.state != null)
+			return false;
+		if (status != null ? !status.equals(order.status) : order.status != null)
+			return false;
+		if (storeName != null ? !storeName.equals(order.storeName) : order.storeName != null)
+			return false;
+		if (subtotal != null ? !subtotal.equals(order.subtotal) : order.subtotal != null)
+			return false;
+		if (taxAmount != null ? !taxAmount.equals(order.taxAmount) : order.taxAmount != null)
+			return false;
+		if (totalCanceled != null ? !totalCanceled.equals(order.totalCanceled) : order.totalCanceled != null)
+			return false;
+		if (totalInvoiced != null ? !totalInvoiced.equals(order.totalInvoiced) : order.totalInvoiced != null)
+			return false;
+		if (totalOfflineRefunded != null ? !totalOfflineRefunded.equals(order.totalOfflineRefunded) : order.totalOfflineRefunded != null)
+			return false;
+		if (totalOnlineRefunded != null ? !totalOnlineRefunded.equals(order.totalOnlineRefunded) : order.totalOnlineRefunded != null)
+			return false;
+		if (totalPaid != null ? !totalPaid.equals(order.totalPaid) : order.totalPaid != null)
+			return false;
+		if (totalQtyOrdered != null ? !totalQtyOrdered.equals(order.totalQtyOrdered) : order.totalQtyOrdered != null)
+			return false;
+		if (totalRefunded != null ? !totalRefunded.equals(order.totalRefunded) : order.totalRefunded != null)
+			return false;
+		if (weight != null ? !weight.equals(order.weight) : order.weight != null)
+			return false;
 
-        return true;
-    }public String toString() {
-    return "Order{" +
-            "orderNumber='" + orderNumber + '\'' +
-            ", parentOrderNumber='" + parentOrderNumber + '\'' +
-            ", parentOrderId=" + parentOrderId +
-            ", storeName='" + storeName + '\'' +
-            ", status='" + status + '\'' +
-            ", state='" + state + '\'' +
-            ", shippingDescription='" + shippingDescription + '\'' +
-            ", shippingMethod='" + shippingMethod + '\'' +
-            ", taxAmount=" + taxAmount +
-            ", shippingAmount=" + shippingAmount +
-            ", discountAmount=" + discountAmount +
-            ", subtotal=" + subtotal +
-            ", grandTotal=" + grandTotal +
-            ", totalPaid=" + totalPaid +
-            ", totalRefunded=" + totalRefunded +
-            ", totalQtyOrdered=" + totalQtyOrdered +
-            ", totalCanceled=" + totalCanceled +
-            ", totalInvoiced=" + totalInvoiced +
-            ", totalOnlineRefunded=" + totalOnlineRefunded +
-            ", totalOfflineRefunded=" + totalOfflineRefunded +
-            ", shippingTaxAmount=" + shippingTaxAmount +
-            ", shippingTaxRefunded=" + shippingTaxRefunded +
-            ", weight=" + weight +
-            ", emailSent=" + emailSent +
-            ", customerIsGuest=" + customerIsGuest +
-            ", customer=" + customer +
-            ", billingAddress=" + billingAddress +
-            ", shippingAddress=" + shippingAddress +
-            ", items=" + items +
-            '}';
-}
+		return true;
+	}
 
+	public String toString() {
+		return "Order{" + "orderNumber='" + orderNumber + '\'' + ", parentOrderNumber='" + parentOrderNumber + '\'' + ", parentOrderId=" + parentOrderId
+				+ ", storeName='" + storeName + '\'' + ", status='" + status + '\'' + ", state='" + state + '\'' + ", shippingDescription='"
+				+ shippingDescription + '\'' + ", shippingMethod='" + shippingMethod + '\'' + ", taxAmount=" + taxAmount + ", shippingAmount=" + shippingAmount
+				+ ", discountAmount=" + discountAmount + ", subtotal=" + subtotal + ", grandTotal=" + grandTotal + ", totalPaid=" + totalPaid
+				+ ", totalRefunded=" + totalRefunded + ", totalQtyOrdered=" + totalQtyOrdered + ", totalCanceled=" + totalCanceled + ", totalInvoiced="
+				+ totalInvoiced + ", totalOnlineRefunded=" + totalOnlineRefunded + ", totalOfflineRefunded=" + totalOfflineRefunded + ", shippingTaxAmount="
+				+ shippingTaxAmount + ", shippingTaxRefunded=" + shippingTaxRefunded + ", weight=" + weight + ", emailSent=" + emailSent + ", customerIsGuest="
+				+ customerIsGuest + ", customer=" + customer + ", billingAddress=" + billingAddress + ", shippingAddress=" + shippingAddress + ", items="
+				+ items + '}';
+	}
 
 }

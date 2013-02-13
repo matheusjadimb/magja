@@ -31,7 +31,7 @@ public class MagjaFileUtils {
 		String contentType = uc.getContentType();
 		int contentLength = uc.getContentLength();
 
-		if(contentType.startsWith("text/") || contentLength == -1){
+		if (contentType.startsWith("text/") || contentLength == -1) {
 			throw new IOException("This is not a binary file.");
 		}
 
@@ -40,15 +40,15 @@ public class MagjaFileUtils {
 		byte[] data = new byte[contentLength];
 		int bytesRead = 0;
 		int offset = 0;
-		while (offset < contentLength){
+		while (offset < contentLength) {
 			bytesRead = in.read(data, offset, data.length - offset);
-			if(bytesRead == -1)
+			if (bytesRead == -1)
 				break;
 			offset += bytesRead;
 		}
 		in.close();
 
-		if(offset != contentLength){
+		if (offset != contentLength) {
 			throw new IOException("Only read " + offset + " bytes; Expected " + contentLength + " bytes");
 		}
 
@@ -67,7 +67,7 @@ public class MagjaFileUtils {
 	public static byte[] getBytesFromBufferedImage(BufferedImage bi, String format) {
 
 		ByteArrayOutputStream buff = new ByteArrayOutputStream();
-		try{
+		try {
 
 			ImageIO.write(bi, format, buff);
 			byte[] bytes = buff.toByteArray();
@@ -75,7 +75,7 @@ public class MagjaFileUtils {
 
 			return bytes;
 
-		}catch(IOException ex){
+		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
 

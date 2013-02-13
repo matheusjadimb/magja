@@ -78,9 +78,8 @@ public class CartLicense extends BaseMagentoModel {
 
 	@Override
 	public String toString() {
-		return "CartLicense [" + "agreementId=" + agreementId + ", name="
-				+ name + ", content=" + content + ", isActive=" + isActive
-				+ ", isHtml=" + isHtml + ']';
+		return "CartLicense [" + "agreementId=" + agreementId + ", name=" + name + ", content=" + content + ", isActive=" + isActive + ", isHtml=" + isHtml
+				+ ']';
 	}
 
 }

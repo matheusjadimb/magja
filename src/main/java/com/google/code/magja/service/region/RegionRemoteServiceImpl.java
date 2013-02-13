@@ -18,14 +18,18 @@ import com.google.code.magja.soap.MagentoSoapClient;
 
 public class RegionRemoteServiceImpl extends GeneralServiceImpl<Region> implements RegionRemoteService {
 
-	private static final long serialVersionUID=3543094741234701831L;
-	
+	private static final long serialVersionUID = 3543094741234701831L;
+
 	public RegionRemoteServiceImpl(MagentoSoapClient soapClient) {
 		super(soapClient);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.google.code.magja.service.region.RegionRemoteService#list(java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.google.code.magja.service.region.RegionRemoteService#list(java.lang
+	 * .String)
 	 */
 	@Override
 	public List<Region> list(String countryId) throws ServiceException {
@@ -35,11 +39,13 @@ public class RegionRemoteServiceImpl extends GeneralServiceImpl<Region> implemen
 		try {
 			remote_list = soapClient.callSingle(ResourcePath.RegionList, countryId);
 		} catch (AxisFault e) {
-			if(debug) e.printStackTrace();
+			if (debug)
+				e.printStackTrace();
 			throw new ServiceException(e.getMessage());
 		}
 
-		if(remote_list == null) return regions;
+		if (remote_list == null)
+			return regions;
 
 		for (Map<String, Object> map : remote_list) {
 
@@ -53,7 +59,5 @@ public class RegionRemoteServiceImpl extends GeneralServiceImpl<Region> implemen
 
 		return regions;
 	}
-
-
 
 }

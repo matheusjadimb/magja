@@ -6,12 +6,13 @@ package com.google.code.magja.service;
 
 public class ServiceException extends Exception {
 
-	private static final long serialVersionUID=-3829045040825848638L;
+	private static final long serialVersionUID = -3829045040825848638L;
 
 	/**
 	 *
 	 */
-	public ServiceException() {	}
+	public ServiceException() {
+	}
 
 	/**
 	 * @param message

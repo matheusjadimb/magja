@@ -18,7 +18,8 @@ public class CategoryAttributeOption {
 	}
 
 	/**
-	 * @param label the label to set
+	 * @param label
+	 *            the label to set
 	 */
 	public void setLabel(String label) {
 		this.label = label;
@@ -32,13 +33,16 @@ public class CategoryAttributeOption {
 	}
 
 	/**
-	 * @param value the value to set
+	 * @param value
+	 *            the value to set
 	 */
 	public void setValue(Object value) {
 		this.value = value;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -50,7 +54,9 @@ public class CategoryAttributeOption {
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -75,13 +81,14 @@ public class CategoryAttributeOption {
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "CategoryAttributeOption [label=" + label + ", value=" + value
-				+ "]";
+		return "CategoryAttributeOption [label=" + label + ", value=" + value + "]";
 	}
 
 }

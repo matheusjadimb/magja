@@ -8,9 +8,11 @@ import com.google.code.magja.model.address.Address;
 
 public class OrderAddress extends Address {
 
-	private static final long serialVersionUID=-6252927719541675884L;
+	private static final long serialVersionUID = -6252927719541675884L;
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.google.code.magja.model.BaseMagentoModel#serializeToApi()
 	 */
 	@Override
@@ -18,7 +20,9 @@ public class OrderAddress extends Address {
 		return null;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override

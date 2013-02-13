@@ -22,165 +22,199 @@ import com.google.common.collect.ImmutableSet;
 
 public class ShipmentRemoteServiceImpl extends GeneralServiceImpl<Shipment> implements ShipmentRemoteService {
 
-    private static final long serialVersionUID = -830461835402137135L;
-    
-    public ShipmentRemoteServiceImpl(MagentoSoapClient soapClient) {
+	private static final long serialVersionUID = -830461835402137135L;
+
+	public ShipmentRemoteServiceImpl(MagentoSoapClient soapClient) {
 		super(soapClient);
 	}
 
 	/**
-     * Build object Shipment from attributes map
-     *
-     * @param attributes
-     * @return
-     * @throws ServiceException
-     */
-    private Shipment buildShipment(Map<String, Object> attributes) throws ServiceException {
-        Shipment shipment = new Shipment();
-        for (Map.Entry<String, Object> attr : attributes.entrySet()) shipment.set(attr.getKey(), attr.getValue());
-        return shipment;
-    }
+	 * Build object Shipment from attributes map
+	 * 
+	 * @param attributes
+	 * @return
+	 * @throws ServiceException
+	 */
+	private Shipment buildShipment(Map<String, Object> attributes) throws ServiceException {
+		Shipment shipment = new Shipment();
+		for (Map.Entry<String, Object> attr : attributes.entrySet())
+			shipment.set(attr.getKey(), attr.getValue());
+		return shipment;
+	}
 
-    /* (non-Javadoc)
-      * @see com.google.code.magja.service.order.ShipmentRemoteService#addComment(com.google.code.magja.model.order.Shipment, java.lang.String, java.lang.Boolean, java.lang.Boolean)
-      */
-    @Override
-    public void addComment(Shipment shipment, String comment, Boolean email,
-                           Boolean includeComment) throws ServiceException {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.google.code.magja.service.order.ShipmentRemoteService#addComment(
+	 * com.google.code.magja.model.order.Shipment, java.lang.String,
+	 * java.lang.Boolean, java.lang.Boolean)
+	 */
+	@Override
+	public void addComment(Shipment shipment, String comment, Boolean email, Boolean includeComment) throws ServiceException {
 
-        Object[] params = new Object[] {
-        	shipment.getId(),
-        	(comment != null ? comment : ""),
-        	(email ? "1" : "0"),
-        	(includeComment ? "1" : "0") };
+		Object[] params = new Object[] { shipment.getId(), (comment != null ? comment : ""), (email ? "1" : "0"), (includeComment ? "1" : "0") };
 
-        try {
-            soapClient.callArgs(ResourcePath.SalesOrderShipmentAddComment, params);
-        } catch (AxisFault e) {
-            if (debug) e.printStackTrace();
-            throw new ServiceException(e.getMessage());
-        }
-    }
+		try {
+			soapClient.callArgs(ResourcePath.SalesOrderShipmentAddComment, params);
+		} catch (AxisFault e) {
+			if (debug)
+				e.printStackTrace();
+			throw new ServiceException(e.getMessage());
+		}
+	}
 
-    /* (non-Javadoc)
-      * @see com.google.code.magja.service.order.ShipmentRemoteService#addTrack(com.google.code.magja.model.order.Shipment, com.google.code.magja.model.order.ShipmentTrack)
-      */
-    @Override
-    public void addTrack(Shipment shipment, ShipmentTrack track)
-            throws ServiceException {
-        Integer id = null;
-        try {
-            id = Integer.parseInt((String) soapClient.callArgs(ResourcePath.SalesOrderShipmentAddTrack, 
-            		new Object[] { shipment.getId(), track.getCarrier(),
-            			track.getTitle(), track.getNumber() }));
-        } catch (NumberFormatException e) {
-            if (debug) e.printStackTrace();
-            throw new ServiceException(e.getMessage());
-        } catch (AxisFault e) {
-            if (debug) e.printStackTrace();
-            throw new ServiceException(e.getMessage());
-        }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.google.code.magja.service.order.ShipmentRemoteService#addTrack(com
+	 * .google.code.magja.model.order.Shipment,
+	 * com.google.code.magja.model.order.ShipmentTrack)
+	 */
+	@Override
+	public void addTrack(Shipment shipment, ShipmentTrack track) throws ServiceException {
+		Integer id = null;
+		try {
+			id = Integer.parseInt((String) soapClient.callArgs(ResourcePath.SalesOrderShipmentAddTrack, new Object[] { shipment.getId(), track.getCarrier(),
+					track.getTitle(), track.getNumber() }));
+		} catch (NumberFormatException e) {
+			if (debug)
+				e.printStackTrace();
+			throw new ServiceException(e.getMessage());
+		} catch (AxisFault e) {
+			if (debug)
+				e.printStackTrace();
+			throw new ServiceException(e.getMessage());
+		}
 
-        if (id == null || id <= 0) throw new ServiceException("Error saving track");
+		if (id == null || id <= 0)
+			throw new ServiceException("Error saving track");
 
-        track.setId(id);
-    }
+		track.setId(id);
+	}
 
-    /* (non-Javadoc)
-      * @see com.google.code.magja.service.order.ShipmentRemoteService#getById(java.lang.Integer)
-      */
-    @Override
-    public Shipment getById(Integer id) throws ServiceException {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.google.code.magja.service.order.ShipmentRemoteService#getById(java
+	 * .lang.Integer)
+	 */
+	@Override
+	public Shipment getById(Integer id) throws ServiceException {
 
-        Map<String, Object> result = null;
-        try {
-            result = soapClient.callSingle(ResourcePath.SalesOrderShipmentInfo, id);
-        } catch (AxisFault e) {
-            if (debug) e.printStackTrace();
-            throw new ServiceException(e.getMessage());
-        }
+		Map<String, Object> result = null;
+		try {
+			result = soapClient.callSingle(ResourcePath.SalesOrderShipmentInfo, id);
+		} catch (AxisFault e) {
+			if (debug)
+				e.printStackTrace();
+			throw new ServiceException(e.getMessage());
+		}
 
-        return (result != null ? buildShipment(result) : null);
-    }
+		return (result != null ? buildShipment(result) : null);
+	}
 
-    /* (non-Javadoc)
-      * @see com.google.code.magja.service.order.ShipmentRemoteService#list(java.lang.String)
-      */
-    @Override
-    public List<Shipment> list(String filter) throws ServiceException {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.google.code.magja.service.order.ShipmentRemoteService#list(java.lang
+	 * .String)
+	 */
+	@Override
+	public List<Shipment> list(String filter) throws ServiceException {
 
-        List<Shipment> shipments = new ArrayList<Shipment>();
+		List<Shipment> shipments = new ArrayList<Shipment>();
 
-        List<Map<String, Object>> results = null;
-        try {
-            results = soapClient.callSingle(ResourcePath.SalesOrderShipmentList, filter);
-        } catch (AxisFault e) {
-            if (debug) e.printStackTrace();
-            throw new ServiceException(e.getMessage());
-        }
+		List<Map<String, Object>> results = null;
+		try {
+			results = soapClient.callSingle(ResourcePath.SalesOrderShipmentList, filter);
+		} catch (AxisFault e) {
+			if (debug)
+				e.printStackTrace();
+			throw new ServiceException(e.getMessage());
+		}
 
-        for (Map<String, Object> result : results)
-            shipments.add(buildShipment(result));
+		for (Map<String, Object> result : results)
+			shipments.add(buildShipment(result));
 
-        return shipments;
-    }
+		return shipments;
+	}
 
-    /* (non-Javadoc)
-      * @see com.google.code.magja.service.order.ShipmentRemoteService#removeTrack(com.google.code.magja.model.order.Shipment, com.google.code.magja.model.order.ShipmentTrack)
-      */
-    @Override
-    public void removeTrack(Shipment shipment, ShipmentTrack track)
-            throws ServiceException {
-        try {
-            soapClient.callArgs(ResourcePath.SalesOrderShipmentRemoveTrack, new Object[] {
-            		shipment.getId(), track.getId() });
-        } catch (AxisFault e) {
-            if (debug) e.printStackTrace();
-            throw new ServiceException(e.getMessage());
-        }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.google.code.magja.service.order.ShipmentRemoteService#removeTrack
+	 * (com.google.code.magja.model.order.Shipment,
+	 * com.google.code.magja.model.order.ShipmentTrack)
+	 */
+	@Override
+	public void removeTrack(Shipment shipment, ShipmentTrack track) throws ServiceException {
+		try {
+			soapClient.callArgs(ResourcePath.SalesOrderShipmentRemoveTrack, new Object[] { shipment.getId(), track.getId() });
+		} catch (AxisFault e) {
+			if (debug)
+				e.printStackTrace();
+			throw new ServiceException(e.getMessage());
+		}
 
-    }
+	}
 
-    /* (non-Javadoc)
-      * @see com.google.code.magja.service.order.ShipmentRemoteService#create(com.google.code.magja.model.order.Shipment, java.lang.String, java.lang.Boolean, java.lang.Boolean)
-      */
-    @Override
-    public void save(Shipment shipment, String comment, Boolean email,
-                     Boolean includeComment) throws ServiceException {
-        Integer id = null;
-        try {
-        	HashMap<Integer, Double> shipmentItems = new HashMap<Integer, Double>();
-        	for (ShipmentItem shipmentItem : shipment.getItems()) {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.google.code.magja.service.order.ShipmentRemoteService#create(com.
+	 * google.code.magja.model.order.Shipment, java.lang.String,
+	 * java.lang.Boolean, java.lang.Boolean)
+	 */
+	@Override
+	public void save(Shipment shipment, String comment, Boolean email, Boolean includeComment) throws ServiceException {
+		Integer id = null;
+		try {
+			HashMap<Integer, Double> shipmentItems = new HashMap<Integer, Double>();
+			for (ShipmentItem shipmentItem : shipment.getItems()) {
 				shipmentItems.put(shipmentItem.getOrderItemId(), shipmentItem.getQty());
 			}
-            id = Integer.parseInt((String) soapClient.callArgs(ResourcePath.SalesOrderShipmentCreate, new Object[] {
-            		shipment.getOrderNumber(), shipmentItems, comment != null ? comment : "", email ? 1 : 0, includeComment ? 1 : 0 }));
-        } catch (NumberFormatException e) {
-            if (debug) e.printStackTrace();
-            throw new ServiceException(e.getMessage());
-        } catch (AxisFault e) {
-            if (debug) e.printStackTrace();
-            throw new ServiceException(e.getMessage());
-        }
+			id = Integer.parseInt((String) soapClient.callArgs(ResourcePath.SalesOrderShipmentCreate, new Object[] { shipment.getOrderNumber(), shipmentItems,
+					comment != null ? comment : "", email ? 1 : 0, includeComment ? 1 : 0 }));
+		} catch (NumberFormatException e) {
+			if (debug)
+				e.printStackTrace();
+			throw new ServiceException(e.getMessage());
+		} catch (AxisFault e) {
+			if (debug)
+				e.printStackTrace();
+			throw new ServiceException(e.getMessage());
+		}
 
-        if (id == null || id <= 0) throw new ServiceException("Error saving shipment");
+		if (id == null || id <= 0)
+			throw new ServiceException("Error saving shipment");
 
-        shipment.setId(id);
-    }
+		shipment.setId(id);
+	}
 
-    /* (non-Javadoc)
-      * @see com.google.code.magja.service.order.ShipmentRemoteService#getCarriers(java.lang.Integer)
-      */
-    @Override
-    public Map<String, String> getCarriers(Integer orderId) throws ServiceException {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.google.code.magja.service.order.ShipmentRemoteService#getCarriers
+	 * (java.lang.Integer)
+	 */
+	@Override
+	public Map<String, String> getCarriers(Integer orderId) throws ServiceException {
 
-        try {
-            Map<String, String> carriers = soapClient.callSingle(ResourcePath.SalesOrderShipmentGetCarriers, orderId);
-            return carriers;
-        } catch (AxisFault e) {
-            if (debug) e.printStackTrace();
-            throw new ServiceException(e.getMessage());
-        }
+		try {
+			Map<String, String> carriers = soapClient.callSingle(ResourcePath.SalesOrderShipmentGetCarriers, orderId);
+			return carriers;
+		} catch (AxisFault e) {
+			if (debug)
+				e.printStackTrace();
+			throw new ServiceException(e.getMessage());
+		}
 
-    }
+	}
 }

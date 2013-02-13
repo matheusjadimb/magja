@@ -38,11 +38,10 @@ public abstract class Address<S> extends BaseMagentoModel<S> {
 
 	protected String countryCode;
 
-	public static Address fromAttributes(Address address,
-			Map<String, Object> attrs) {
+	public static Address fromAttributes(Address address, Map<String, Object> attrs) {
 		if (address == null)
 			return null;
-		
+
 		for (Map.Entry<String, Object> attr : attrs.entrySet())
 			address.set(attr.getKey(), attr.getValue());
 
@@ -255,23 +254,17 @@ public abstract class Address<S> extends BaseMagentoModel<S> {
 		int result = super.hashCode();
 		result = prime * result + ((city == null) ? 0 : city.hashCode());
 		result = prime * result + ((company == null) ? 0 : company.hashCode());
-		result = prime * result
-				+ ((countryCode == null) ? 0 : countryCode.hashCode());
+		result = prime * result + ((countryCode == null) ? 0 : countryCode.hashCode());
 		result = prime * result + ((fax == null) ? 0 : fax.hashCode());
-		result = prime * result
-				+ ((firstName == null) ? 0 : firstName.hashCode());
-		result = prime * result
-				+ ((lastName == null) ? 0 : lastName.hashCode());
-		result = prime * result
-				+ ((middleName == null) ? 0 : middleName.hashCode());
-		result = prime * result
-				+ ((postCode == null) ? 0 : postCode.hashCode());
+		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+		result = prime * result + ((middleName == null) ? 0 : middleName.hashCode());
+		result = prime * result + ((postCode == null) ? 0 : postCode.hashCode());
 		result = prime * result + ((prefix == null) ? 0 : prefix.hashCode());
 		result = prime * result + ((region == null) ? 0 : region.hashCode());
 		result = prime * result + ((street == null) ? 0 : street.hashCode());
 		result = prime * result + ((suffix == null) ? 0 : suffix.hashCode());
-		result = prime * result
-				+ ((telephone == null) ? 0 : telephone.hashCode());
+		result = prime * result + ((telephone == null) ? 0 : telephone.hashCode());
 		return result;
 	}
 
@@ -356,7 +349,7 @@ public abstract class Address<S> extends BaseMagentoModel<S> {
 			return false;
 		return true;
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -364,12 +357,8 @@ public abstract class Address<S> extends BaseMagentoModel<S> {
 	 */
 	@Override
 	public String toString() {
-		return "Address [city=" + city + ", company=" + company
-				+ ", countryCode=" + countryCode + ", fax=" + fax
-				+ ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", middleName=" + middleName + ", postCode=" + postCode
-				+ ", prefix=" + prefix + ", region=" + region + ", street="
-				+ street + ", suffix=" + suffix + ", telephone=" + telephone
-				+ ", id=" + id + ", properties=" + properties + "]";
+		return "Address [city=" + city + ", company=" + company + ", countryCode=" + countryCode + ", fax=" + fax + ", firstName=" + firstName + ", lastName="
+				+ lastName + ", middleName=" + middleName + ", postCode=" + postCode + ", prefix=" + prefix + ", region=" + region + ", street=" + street
+				+ ", suffix=" + suffix + ", telephone=" + telephone + ", id=" + id + ", properties=" + properties + "]";
 	}
 }

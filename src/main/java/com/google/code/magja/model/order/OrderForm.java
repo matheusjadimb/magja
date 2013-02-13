@@ -12,8 +12,9 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 
 /**
- * Order form to be sent to Magento API which will create a complete order
- * with products. Each product is stored within an {@link OrderFormItem}.
+ * Order form to be sent to Magento API which will create a complete order with
+ * products. Each product is stored within an {@link OrderFormItem}.
+ * 
  * @author rudi
  */
 @SuppressWarnings("serial")
@@ -24,18 +25,19 @@ public class OrderForm extends BaseMagentoModel<Map<String, Object>> {
 	private List<OrderFormItem> items;
 	private BasicAddress billingAddress;
 	private BasicAddress shippingAddress;
-	
+
 	private String paymentMethod = "banktransfer";
 	private String shippingMethod = "flatrate_flatrate";
 	private Double shippingAmount;
 	private String shippingDescription = "Flat Rate - Fixed";
-	
+
 	public OrderForm() {
 		super();
 	}
-	
+
 	/**
 	 * Used by {@link OrderRemoteService#createEx(OrderForm)} (basic version).
+	 * 
 	 * @param customerId
 	 * @param currencyCode
 	 * @param items
@@ -45,9 +47,11 @@ public class OrderForm extends BaseMagentoModel<Map<String, Object>> {
 		this.customerId = customerId;
 		this.items = items;
 	}
-	
+
 	/**
-	 * Used by {@link OrderRemoteService#createEx(OrderForm)} (extended version).
+	 * Used by {@link OrderRemoteService#createEx(OrderForm)} (extended
+	 * version).
+	 * 
 	 * @param customerId
 	 * @param items
 	 */
@@ -59,35 +63,37 @@ public class OrderForm extends BaseMagentoModel<Map<String, Object>> {
 		this.billingAddress = billingAddress;
 		this.shippingAddress = shippingAddress;
 	}
-	
+
 	@Override
 	protected void loadMappings() {
 		mapping = new Properties();
-		mapping.putAll( ImmutableMap.of("customer_id", (Object)"customerId") );
-		mapping.putAll( ImmutableMap.of("currency_code", (Object)"currencyCode") );
-		mapping.putAll( ImmutableMap.of("payment_method", (Object)"paymentMethod") );
-		mapping.putAll( ImmutableMap.of("shipping_method", (Object)"shippingMethod") );
-		mapping.putAll( ImmutableMap.of("shipping_amount", (Object)"shippingAmount") );
-		mapping.putAll( ImmutableMap.of("shipping_description", (Object)"shippingDescription") );
-		//mapping.putAll( ImmutableMap.of("billingAddress", (Object)"billingAddress"));
-		//mapping.putAll( ImmutableMap.of("shippingAddress", (Object)"shippingAddress") );
+		mapping.putAll(ImmutableMap.of("customer_id", (Object) "customerId"));
+		mapping.putAll(ImmutableMap.of("currency_code", (Object) "currencyCode"));
+		mapping.putAll(ImmutableMap.of("payment_method", (Object) "paymentMethod"));
+		mapping.putAll(ImmutableMap.of("shipping_method", (Object) "shippingMethod"));
+		mapping.putAll(ImmutableMap.of("shipping_amount", (Object) "shippingAmount"));
+		mapping.putAll(ImmutableMap.of("shipping_description", (Object) "shippingDescription"));
+		// mapping.putAll( ImmutableMap.of("billingAddress",
+		// (Object)"billingAddress"));
+		// mapping.putAll( ImmutableMap.of("shippingAddress",
+		// (Object)"shippingAddress") );
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.google.code.magja.model.BaseMagentoModel#serializeToApi()
 	 */
 	@Override
 	public Map<String, Object> serializeToApi() {
 		Map<String, Object> props = getAllProperties();
-		List<Map<String, ?>> itemsApi = Lists.transform(items,	new Function<OrderFormItem, Map<String, ?>>() {
+		List<Map<String, ?>> itemsApi = Lists.transform(items, new Function<OrderFormItem, Map<String, ?>>() {
 			@Override
 			public Map<String, ?> apply(OrderFormItem input) {
-				return ImmutableMap.of(
-						"product_id", input.getProductId(),
-						"qty", input.getQty());
+				return ImmutableMap.of("product_id", input.getProductId(), "qty", input.getQty());
 			}
 		});
-		
+
 		props.put("items", itemsApi);
 		if (billingAddress != null) {
 			props.put("billingAddress", billingAddress.serializeToApi());
@@ -106,7 +112,8 @@ public class OrderForm extends BaseMagentoModel<Map<String, Object>> {
 	}
 
 	/**
-	 * @param customerId the customerId to set
+	 * @param customerId
+	 *            the customerId to set
 	 */
 	public void setCustomerId(Long customerId) {
 		this.customerId = customerId;
@@ -120,7 +127,8 @@ public class OrderForm extends BaseMagentoModel<Map<String, Object>> {
 	}
 
 	/**
-	 * @param items the items to set
+	 * @param items
+	 *            the items to set
 	 */
 	public void setItems(List<OrderFormItem> items) {
 		this.items = items;
@@ -134,7 +142,8 @@ public class OrderForm extends BaseMagentoModel<Map<String, Object>> {
 	}
 
 	/**
-	 * @param billingAddress the billingAddress to set
+	 * @param billingAddress
+	 *            the billingAddress to set
 	 */
 	public void setBillingAddress(BasicAddress billingAddress) {
 		this.billingAddress = billingAddress;
@@ -148,7 +157,8 @@ public class OrderForm extends BaseMagentoModel<Map<String, Object>> {
 	}
 
 	/**
-	 * @param shippingAddress the shippingAddress to set
+	 * @param shippingAddress
+	 *            the shippingAddress to set
 	 */
 	public void setShippingAddress(BasicAddress shippingAddress) {
 		this.shippingAddress = shippingAddress;
@@ -161,7 +171,7 @@ public class OrderForm extends BaseMagentoModel<Map<String, Object>> {
 	public void setCurrencyCode(String currencyCode) {
 		this.currencyCode = currencyCode;
 	}
-	
+
 	/**
 	 * @return the paymentMethod
 	 */
@@ -170,7 +180,8 @@ public class OrderForm extends BaseMagentoModel<Map<String, Object>> {
 	}
 
 	/**
-	 * @param paymentMethod the paymentMethod to set
+	 * @param paymentMethod
+	 *            the paymentMethod to set
 	 */
 	public void setPaymentMethod(String paymentMethod) {
 		this.paymentMethod = paymentMethod;
@@ -184,7 +195,8 @@ public class OrderForm extends BaseMagentoModel<Map<String, Object>> {
 	}
 
 	/**
-	 * @param shippingMethod the shippingMethod to set
+	 * @param shippingMethod
+	 *            the shippingMethod to set
 	 */
 	public void setShippingMethod(String shippingMethod) {
 		this.shippingMethod = shippingMethod;
@@ -198,7 +210,8 @@ public class OrderForm extends BaseMagentoModel<Map<String, Object>> {
 	}
 
 	/**
-	 * @param shippingAmount the shippingAmount to set
+	 * @param shippingAmount
+	 *            the shippingAmount to set
 	 */
 	public void setShippingAmount(Double shippingAmount) {
 		this.shippingAmount = shippingAmount;
@@ -212,18 +225,21 @@ public class OrderForm extends BaseMagentoModel<Map<String, Object>> {
 	}
 
 	/**
-	 * @param shippingDescription the shippingDescription to set
+	 * @param shippingDescription
+	 *            the shippingDescription to set
 	 */
 	public void setShippingDescription(String shippingDescription) {
 		this.shippingDescription = shippingDescription;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "OrderForm [customerId=" + customerId + ", items=" + items + ", shippingAddress="+ shippingAddress + ", billingAddress="+ billingAddress + "]";
+		return "OrderForm [customerId=" + customerId + ", items=" + items + ", shippingAddress=" + shippingAddress + ", billingAddress=" + billingAddress + "]";
 	}
-	
+
 }

@@ -37,11 +37,11 @@ import com.google.code.magja.soap.SoapConfig;
  * @author andre.fabbro
  */
 public class RemoteServiceFactory {
-	
+
 	private MagentoSoapClient magentoClient;
-	
+
 	private static RemoteServiceFactory singletonInstance;
-	
+
 	private OrderRemoteService orderRemoteService;
 	private ShipmentRemoteService shipmentRemoteService;
 	private RegistryRemoteService registryRemoteService;
@@ -56,172 +56,172 @@ public class RemoteServiceFactory {
 	private CategoryRemoteService categoryRemoteService;
 	private CategoryAttributeRemoteService categoryAttributeRemoteService;
 	private CartRemoteService cartRemoteService;
-	
-    public RemoteServiceFactory(MagentoSoapClient magentoClient) {
+
+	public RemoteServiceFactory(MagentoSoapClient magentoClient) {
 		super();
 		this.magentoClient = magentoClient;
 	}
-    
-    @Deprecated
-    public static RemoteServiceFactory getSingleton() {
-    	return getSingleton(null);
-    }
 
-    @Deprecated
-    public static RemoteServiceFactory getSingleton(SoapConfig soapConfig) {
-    	if (singletonInstance == null) {
-    		singletonInstance = new RemoteServiceFactory(MagentoSoapClient.getInstance(soapConfig));
-    	}
-    	return singletonInstance;
-    }
+	@Deprecated
+	public static RemoteServiceFactory getSingleton() {
+		return getSingleton(null);
+	}
+
+	@Deprecated
+	public static RemoteServiceFactory getSingleton(SoapConfig soapConfig) {
+		if (singletonInstance == null) {
+			singletonInstance = new RemoteServiceFactory(MagentoSoapClient.getInstance(soapConfig));
+		}
+		return singletonInstance;
+	}
 
 	/**
-     * @return the shipmentRemoteService
-     */
-    public InvoiceRemoteService getInvoiceRemoteService() {
-        InvoiceRemoteService invoiceRemoteService = new InvoiceRemoteServiceImpl(magentoClient);
-        return invoiceRemoteService;
-    }
+	 * @return the shipmentRemoteService
+	 */
+	public InvoiceRemoteService getInvoiceRemoteService() {
+		InvoiceRemoteService invoiceRemoteService = new InvoiceRemoteServiceImpl(magentoClient);
+		return invoiceRemoteService;
+	}
 
-    /**
-     * @return the shipmentRemoteService
-     */
-    public RegistryRemoteService getRegistryRemoteService() {
-    	if (registryRemoteService == null) {
-    		registryRemoteService = new RegistryRemoteServiceImpl(magentoClient);
-    	}
-        return registryRemoteService;
-    }
+	/**
+	 * @return the shipmentRemoteService
+	 */
+	public RegistryRemoteService getRegistryRemoteService() {
+		if (registryRemoteService == null) {
+			registryRemoteService = new RegistryRemoteServiceImpl(magentoClient);
+		}
+		return registryRemoteService;
+	}
 
-    /**
-     * @return the shipmentRemoteService
-     */
-    public ShipmentRemoteService getShipmentRemoteService() {
-    	if (shipmentRemoteService == null) {
-    		shipmentRemoteService = new ShipmentRemoteServiceImpl(magentoClient);
-    	}
-        return shipmentRemoteService;
-    }
+	/**
+	 * @return the shipmentRemoteService
+	 */
+	public ShipmentRemoteService getShipmentRemoteService() {
+		if (shipmentRemoteService == null) {
+			shipmentRemoteService = new ShipmentRemoteServiceImpl(magentoClient);
+		}
+		return shipmentRemoteService;
+	}
 
-    /**
-     * @return the orderRemoteService
-     */
-    public OrderRemoteService getOrderRemoteService() {
-    	if (orderRemoteService == null) {
-    		orderRemoteService = new OrderRemoteServiceImpl(magentoClient);
-    	}
-        return orderRemoteService;
-    }
+	/**
+	 * @return the orderRemoteService
+	 */
+	public OrderRemoteService getOrderRemoteService() {
+		if (orderRemoteService == null) {
+			orderRemoteService = new OrderRemoteServiceImpl(magentoClient);
+		}
+		return orderRemoteService;
+	}
 
-    /**
-     * @return the regionRemoteService
-     */
-    public RegionRemoteService getRegionRemoteService() {
-    	if (regionRemoteService == null) {
-    		regionRemoteService = new RegionRemoteServiceImpl(magentoClient);
-    	}
-        return regionRemoteService;
-    }
+	/**
+	 * @return the regionRemoteService
+	 */
+	public RegionRemoteService getRegionRemoteService() {
+		if (regionRemoteService == null) {
+			regionRemoteService = new RegionRemoteServiceImpl(magentoClient);
+		}
+		return regionRemoteService;
+	}
 
-    /**
-     * @return the countryRemoteService
-     */
-    public CountryRemoteService getCountryRemoteService() {
-    	if (countryRemoteService == null) {
-    		countryRemoteService = new CountryRemoteServiceImpl(magentoClient);
-    	}
-        return countryRemoteService;
-    }
+	/**
+	 * @return the countryRemoteService
+	 */
+	public CountryRemoteService getCountryRemoteService() {
+		if (countryRemoteService == null) {
+			countryRemoteService = new CountryRemoteServiceImpl(magentoClient);
+		}
+		return countryRemoteService;
+	}
 
-    /**
-     * @return the customerAddressRemoteService
-     */
-    public CustomerAddressRemoteService getCustomerAddressRemoteService() {
-    	if (customerAddressRemoteService == null) {
-    		customerAddressRemoteService = new CustomerAddressRemoteServiceImpl(magentoClient);
-    	}
-        return customerAddressRemoteService;
-    }
+	/**
+	 * @return the customerAddressRemoteService
+	 */
+	public CustomerAddressRemoteService getCustomerAddressRemoteService() {
+		if (customerAddressRemoteService == null) {
+			customerAddressRemoteService = new CustomerAddressRemoteServiceImpl(magentoClient);
+		}
+		return customerAddressRemoteService;
+	}
 
-    /**
-     * @return the customerRemoteService
-     */
-    public CustomerRemoteService getCustomerRemoteService() {
-    	if (customerRemoteService == null) {
-    		customerRemoteService = new CustomerRemoteServiceImpl(magentoClient);
-    	}
-        return customerRemoteService;
-    }
+	/**
+	 * @return the customerRemoteService
+	 */
+	public CustomerRemoteService getCustomerRemoteService() {
+		if (customerRemoteService == null) {
+			customerRemoteService = new CustomerRemoteServiceImpl(magentoClient);
+		}
+		return customerRemoteService;
+	}
 
-    /**
-     * @return the productLinkRemoteService
-     */
-    public ProductLinkRemoteService getProductLinkRemoteService() {
-    	if (productLinkRemoteService == null) {
-    		productLinkRemoteService = new ProductLinkRemoteServiceImpl(magentoClient);
-    	}
-        return productLinkRemoteService;
-    }
+	/**
+	 * @return the productLinkRemoteService
+	 */
+	public ProductLinkRemoteService getProductLinkRemoteService() {
+		if (productLinkRemoteService == null) {
+			productLinkRemoteService = new ProductLinkRemoteServiceImpl(magentoClient);
+		}
+		return productLinkRemoteService;
+	}
 
-    /**
-     * @return the productMediaRemoteService
-     */
-    public ProductMediaRemoteService getProductMediaRemoteService() {
-    	if (productLinkRemoteService == null) {
-    		productMediaRemoteService = new ProductMediaRemoteServiceImpl(magentoClient);
-    	}
-        return productMediaRemoteService;
-    }
+	/**
+	 * @return the productMediaRemoteService
+	 */
+	public ProductMediaRemoteService getProductMediaRemoteService() {
+		if (productLinkRemoteService == null) {
+			productMediaRemoteService = new ProductMediaRemoteServiceImpl(magentoClient);
+		}
+		return productMediaRemoteService;
+	}
 
-    /**
-     * @return the productAttributeRemoteService
-     */
-    public ProductAttributeRemoteService getProductAttributeRemoteService() {
-    	if (productAttributeRemoteService == null) {
-    		productAttributeRemoteService = new ProductAttributeRemoteServiceImpl(magentoClient);
-    	}
-        return productAttributeRemoteService;
-    }
+	/**
+	 * @return the productAttributeRemoteService
+	 */
+	public ProductAttributeRemoteService getProductAttributeRemoteService() {
+		if (productAttributeRemoteService == null) {
+			productAttributeRemoteService = new ProductAttributeRemoteServiceImpl(magentoClient);
+		}
+		return productAttributeRemoteService;
+	}
 
-    /**
-     * @return the productRemoteService
-     */
-    public ProductRemoteService getProductRemoteService() {
-    	if (productRemoteService == null) {
-    		productRemoteService = new ProductRemoteServiceImpl(magentoClient, this);
-    	}
-        return productRemoteService;
+	/**
+	 * @return the productRemoteService
+	 */
+	public ProductRemoteService getProductRemoteService() {
+		if (productRemoteService == null) {
+			productRemoteService = new ProductRemoteServiceImpl(magentoClient, this);
+		}
+		return productRemoteService;
 
-    }
+	}
 
-    /**
-     * @return the categoryRemoteService
-     */
-    public CategoryRemoteService getCategoryRemoteService() {
-    	if (categoryRemoteService == null) {
-    		categoryRemoteService = new CategoryRemoteServiceImpl(magentoClient, this);
-    	}
-        return categoryRemoteService;
-    }
+	/**
+	 * @return the categoryRemoteService
+	 */
+	public CategoryRemoteService getCategoryRemoteService() {
+		if (categoryRemoteService == null) {
+			categoryRemoteService = new CategoryRemoteServiceImpl(magentoClient, this);
+		}
+		return categoryRemoteService;
+	}
 
-    /**
-     * @return the categoryAttributeRemoteService
-     */
-    public CategoryAttributeRemoteService getCategoryAttributeRemoteService() {
-    	if (categoryAttributeRemoteService == null) {
-    		categoryAttributeRemoteService = new CategoryAttributeRemoteServiceImpl(magentoClient);
-    	}
-        return categoryAttributeRemoteService;
-    }
+	/**
+	 * @return the categoryAttributeRemoteService
+	 */
+	public CategoryAttributeRemoteService getCategoryAttributeRemoteService() {
+		if (categoryAttributeRemoteService == null) {
+			categoryAttributeRemoteService = new CategoryAttributeRemoteServiceImpl(magentoClient);
+		}
+		return categoryAttributeRemoteService;
+	}
 
-    /**
-     * @return the cartRemoteService
-     */
-    public CartRemoteService getCartRemoteService() {
-    	if (cartRemoteService == null) {
-    		cartRemoteService = new CartRemoteServiceImpl(magentoClient);
-    	}
-        return cartRemoteService;
-    }
+	/**
+	 * @return the cartRemoteService
+	 */
+	public CartRemoteService getCartRemoteService() {
+		if (cartRemoteService == null) {
+			cartRemoteService = new CartRemoteServiceImpl(magentoClient);
+		}
+		return cartRemoteService;
+	}
 
 }

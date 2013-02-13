@@ -20,7 +20,7 @@ import com.google.code.magja.utils.MagjaStringUtils;
 
 /**
  * @author andre
- *
+ * 
  */
 public class CustomerRemoteServiceTest {
 
@@ -51,8 +51,8 @@ public class CustomerRemoteServiceTest {
 		cust.setGender(Gender.MALE);
 		String email = MagjaStringUtils.randomString(4, 5) + "@" + MagjaStringUtils.randomString(4, 5) + ".com";
 		cust.setEmail(email.toLowerCase());
-		
-		// this include the date of birth on the customer, and it's works, 
+
+		// this include the date of birth on the customer, and it's works,
 		// but, that attribute isn't listed when getting a customer from magento
 		cust.set("dob", "1980-08-17 20:53:04");
 
@@ -60,7 +60,9 @@ public class CustomerRemoteServiceTest {
 	}
 
 	/**
-	 * Test method for {@link com.google.code.magja.service.customer.CustomerRemoteServiceImpl#save(com.google.code.magja.model.customer.Customer)}.
+	 * Test method for
+	 * {@link com.google.code.magja.service.customer.CustomerRemoteServiceImpl#save(com.google.code.magja.model.customer.Customer)}
+	 * .
 	 */
 	@Test
 	public void testSave() {
@@ -78,7 +80,9 @@ public class CustomerRemoteServiceTest {
 	}
 
 	/**
-	 * Test method for {@link com.google.code.magja.service.customer.CustomerRemoteServiceImpl#save(com.google.code.magja.model.customer.Customer)}.
+	 * Test method for
+	 * {@link com.google.code.magja.service.customer.CustomerRemoteServiceImpl#save(com.google.code.magja.model.customer.Customer)}
+	 * .
 	 */
 	@Test
 	public void testSaveAndUpdate() {
@@ -107,7 +111,9 @@ public class CustomerRemoteServiceTest {
 	}
 
 	/**
-	 * Test method for {@link com.google.code.magja.service.customer.CustomerRemoteServiceImpl#delete(java.lang.Integer)}.
+	 * Test method for
+	 * {@link com.google.code.magja.service.customer.CustomerRemoteServiceImpl#delete(java.lang.Integer)}
+	 * .
 	 */
 	@Test
 	public void testDelete() {
@@ -120,7 +126,9 @@ public class CustomerRemoteServiceTest {
 	}
 
 	/**
-	 * Test method for {@link com.google.code.magja.service.customer.CustomerRemoteServiceImpl#getById(java.lang.Integer)}.
+	 * Test method for
+	 * {@link com.google.code.magja.service.customer.CustomerRemoteServiceImpl#getById(java.lang.Integer)}
+	 * .
 	 */
 	@Test
 	public void testGetById() {
@@ -134,7 +142,9 @@ public class CustomerRemoteServiceTest {
 	}
 
 	/**
-	 * Test method for {@link com.google.code.magja.service.customer.CustomerRemoteServiceImpl#list(com.google.code.magja.model.customer.Customer)}.
+	 * Test method for
+	 * {@link com.google.code.magja.service.customer.CustomerRemoteServiceImpl#list(com.google.code.magja.model.customer.Customer)}
+	 * .
 	 */
 	@Test
 	public void testListCustomer() {
@@ -154,7 +164,9 @@ public class CustomerRemoteServiceTest {
 	}
 
 	/**
-	 * Test method for {@link com.google.code.magja.service.customer.CustomerRemoteServiceImpl#list()}.
+	 * Test method for
+	 * {@link com.google.code.magja.service.customer.CustomerRemoteServiceImpl#list()}
+	 * .
 	 */
 	@Test
 	public void testList() {
@@ -169,7 +181,9 @@ public class CustomerRemoteServiceTest {
 	}
 
 	/**
-	 * Test method for {@link com.google.code.magja.service.customer.CustomerRemoteServiceImpl#listGroups()}.
+	 * Test method for
+	 * {@link com.google.code.magja.service.customer.CustomerRemoteServiceImpl#listGroups()}
+	 * .
 	 */
 	@Test
 	public void testListGroups() {

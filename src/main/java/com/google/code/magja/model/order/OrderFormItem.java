@@ -4,17 +4,18 @@ import java.io.Serializable;
 
 /**
  * An individual item in an {@link OrderForm}.
+ * 
  * @author rudi
  */
 public class OrderFormItem implements Serializable {
-	
+
 	private Long productId;
 	private Double qty;
 
 	public OrderFormItem() {
 		super();
 	}
-	
+
 	/**
 	 * @param productId
 	 * @param qty
@@ -33,7 +34,8 @@ public class OrderFormItem implements Serializable {
 	}
 
 	/**
-	 * @param productId the productId to set
+	 * @param productId
+	 *            the productId to set
 	 */
 	public void setProductId(Long productId) {
 		this.productId = productId;
@@ -47,13 +49,16 @@ public class OrderFormItem implements Serializable {
 	}
 
 	/**
-	 * @param qty the qty to set
+	 * @param qty
+	 *            the qty to set
 	 */
 	public void setQty(Double qty) {
 		this.qty = qty;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

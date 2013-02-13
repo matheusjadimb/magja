@@ -25,9 +25,8 @@ import com.google.code.magja.service.ServiceException;
 import com.google.common.collect.ImmutableList;
 
 /**
- * @author andre
- * make sure to have some orders in Magento before run this tests
- *
+ * @author andre make sure to have some orders in Magento before run this tests
+ * 
  */
 public class OrderRemoteServiceTest {
 	private static Logger log = LoggerFactory.getLogger(OrderRemoteService.class);
@@ -42,9 +41,12 @@ public class OrderRemoteServiceTest {
 	}
 
 	/**
-	 * Test method for {@link com.google.code.magja.service.order.OrderRemoteServiceImpl#addComment(com.google.code.magja.model.order.Order, java.lang.String, java.lang.String, java.lang.Boolean)}.
+	 * Test method for
+	 * {@link com.google.code.magja.service.order.OrderRemoteServiceImpl#addComment(com.google.code.magja.model.order.Order, java.lang.String, java.lang.String, java.lang.Boolean)}
+	 * .
 	 */
-	@Test public void addCommentToOrder() {
+	@Test
+	public void addCommentToOrder() {
 
 		Order order = new Order();
 		order.setId(100000017);
@@ -58,9 +60,12 @@ public class OrderRemoteServiceTest {
 	}
 
 	/**
-	 * Test method for {@link com.google.code.magja.service.order.OrderRemoteServiceImpl#cancel(com.google.code.magja.model.order.Order)}.
+	 * Test method for
+	 * {@link com.google.code.magja.service.order.OrderRemoteServiceImpl#cancel(com.google.code.magja.model.order.Order)}
+	 * .
 	 */
-	@Test public void cancelOrder() {
+	@Test
+	public void cancelOrder() {
 
 		Order order = new Order();
 		order.setId(100000001);
@@ -74,27 +79,34 @@ public class OrderRemoteServiceTest {
 	}
 
 	/**
-	 * Test method for {@link com.google.code.magja.service.order.OrderRemoteServiceImpl#getById(java.lang.Integer)}.
-	 * @throws ServiceException 
+	 * Test method for
+	 * {@link com.google.code.magja.service.order.OrderRemoteServiceImpl#getById(java.lang.Integer)}
+	 * .
+	 * 
+	 * @throws ServiceException
 	 */
-	@Test public void getById() throws ServiceException {
+	@Test
+	public void getById() throws ServiceException {
 		final Order order = service.getById(100000081);
 		log.info("Order {}: {}", order);
 		assertNotNull(order);
 
-		//System.out.println(order.getCustomer().toString());
-		//System.out.println(order.getShippingAddress().toString());
-		//System.out.println(order.getBillingAddress().toString());
+		// System.out.println(order.getCustomer().toString());
+		// System.out.println(order.getShippingAddress().toString());
+		// System.out.println(order.getBillingAddress().toString());
 
 		for (final OrderItem item : order.getItems())
 			log.info("Item #{}: {}", item.getId(), item);
 	}
 
 	/**
-	 * Test method for {@link com.google.code.magja.service.order.OrderRemoteServiceImpl#hold(com.google.code.magja.model.order.Order)}.
+	 * Test method for
+	 * {@link com.google.code.magja.service.order.OrderRemoteServiceImpl#hold(com.google.code.magja.model.order.Order)}
+	 * .
 	 */
-	@Test public void holdOrder() {
-		
+	@Test
+	public void holdOrder() {
+
 		Order order = new Order();
 		order.setId(100000003);
 
@@ -103,27 +115,28 @@ public class OrderRemoteServiceTest {
 		} catch (ServiceException e) {
 			fail(e.getMessage());
 		}
-		
+
 	}
 
 	/**
-	 * Test method for {@link com.google.code.magja.service.order.OrderRemoteServiceImpl#unhold(com.google.code.magja.model.order.Order)}.
+	 * Test method for
+	 * {@link com.google.code.magja.service.order.OrderRemoteServiceImpl#unhold(com.google.code.magja.model.order.Order)}
+	 * .
 	 */
-	@Test public void unholdOrder() {
+	@Test
+	public void unholdOrder() {
 		/*
-		Order order = new Order();
-		order.setId(100000003);
-
-		try {
-			service.unhold(order);
-		} catch (ServiceException e) {
-			fail(e.getMessage());
-		}
-		*/
+		 * Order order = new Order(); order.setId(100000003);
+		 * 
+		 * try { service.unhold(order); } catch (ServiceException e) {
+		 * fail(e.getMessage()); }
+		 */
 	}
 
 	/**
-	 * Test method for {@link com.google.code.magja.service.order.OrderRemoteServiceImpl#list(com.google.code.magja.model.order.OrderFilter)}.
+	 * Test method for
+	 * {@link com.google.code.magja.service.order.OrderRemoteServiceImpl#list(com.google.code.magja.model.order.OrderFilter)}
+	 * .
 	 */
 	@Test
 	public void testList() {
@@ -137,12 +150,12 @@ public class OrderRemoteServiceTest {
 			// make sure to have a order with billing_name = Joao da Silva
 			OrderFilter filter = new OrderFilter();
 			filter.getItems().add(new OrderFilterItem("billing_name", "like", "%Silva%"));
-			//filter.getItems().add(new OrderFilterItem("billing_lastname", "=", "Martins"));
+			// filter.getItems().add(new OrderFilterItem("billing_lastname",
+			// "=", "Martins"));
 
 			List<Order> filtered = service.list(filter);
 			for (Order order : filtered)
 				System.out.println(order.toString());
-
 
 		} catch (ServiceException e) {
 			fail(e.getMessage());
@@ -151,35 +164,32 @@ public class OrderRemoteServiceTest {
 
 	@Test
 	public void createValidOrderFormShouldSucceed() throws ServiceException {
-		ImmutableList<OrderFormItem> items = ImmutableList.of(
-				new OrderFormItem(1566L, 1.0),
-				new OrderFormItem(1556L, 1.0));
+		ImmutableList<OrderFormItem> items = ImmutableList.of(new OrderFormItem(1566L, 1.0), new OrderFormItem(1556L, 1.0));
 		long customerId = 3L;
 		OrderForm orderForm = new OrderForm(customerId, "IDR", items);
 		Object order = service.create(orderForm);
-		System.out.println("Order Id "+ order);
+		System.out.println("Order Id " + order);
 		assertNotNull(order);
 	}
 
-	@Test(expected=IllegalArgumentException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void createWithNullCustomerIdShouldFail() throws ServiceException {
-		ImmutableList<OrderFormItem> items = ImmutableList.of(
-				new OrderFormItem(194L, 1.0),
-				new OrderFormItem(195L, 3.0));
+		ImmutableList<OrderFormItem> items = ImmutableList.of(new OrderFormItem(194L, 1.0), new OrderFormItem(195L, 3.0));
 		OrderForm orderForm = new OrderForm(null, "IDR", items);
 		Object order = service.create(orderForm);
 		assertNull(order);
 	}
 
-	@Test(expected=IllegalArgumentException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void createWithNoItemsShouldFail() throws ServiceException {
 		List<OrderFormItem> items = new ArrayList<OrderFormItem>();
 		OrderForm orderForm = new OrderForm(3L, "IDR", items);
 		Object order = service.create(orderForm);
 		assertNull(order);
 	}
-	
-	@Test public void createNewOrderWithCustomAddress() throws ServiceException {
+
+	@Test
+	public void createNewOrderWithCustomAddress() throws ServiceException {
 		/*
 		 * set address
 		 */
@@ -193,14 +203,13 @@ public class OrderRemoteServiceTest {
 		customerAddress.setCountryCode("ID");
 		customerAddress.setTelephone("022-09898989898");
 		customerAddress.setCompany("Rachmart Family");
-		
+
 		log.info("customer address {}", customerAddress);
-		List<OrderFormItem> items = ImmutableList.of(
-				new OrderFormItem(1223L, 1.0) //,
-				//new OrderFormItem(1221L, 1.0)
+		List<OrderFormItem> items = ImmutableList.of(new OrderFormItem(1223L, 1.0) // ,
+				// new OrderFormItem(1221L, 1.0)
 				);
 		OrderForm orderForm = new OrderForm(2L, "IDR", items, customerAddress, customerAddress);
-		
+
 		log.info("orderform {}", orderForm);
 		log.info("shippingAddress {}", orderForm.getShippingAddress());
 		log.info("billingAddress {}", orderForm.getBillingAddress());
@@ -208,7 +217,8 @@ public class OrderRemoteServiceTest {
 		assertNotNull(order);
 	}
 
-	@Test public void createNewOrderWithCustomAddressAndShippingAmount() throws ServiceException {
+	@Test
+	public void createNewOrderWithCustomAddressAndShippingAmount() throws ServiceException {
 		/*
 		 * set address
 		 */
@@ -222,18 +232,17 @@ public class OrderRemoteServiceTest {
 		customerAddress.setCountryCode("ID");
 		customerAddress.setTelephone("022-09898989898");
 		customerAddress.setCompany("Rachmart Family");
-		
+
 		log.info("customer address {}", customerAddress);
-		List<OrderFormItem> items = ImmutableList.of(
-				new OrderFormItem(1222L, 1.0) //,
-				//new OrderFormItem(1221L, 1.0)
+		List<OrderFormItem> items = ImmutableList.of(new OrderFormItem(1222L, 1.0) // ,
+				// new OrderFormItem(1221L, 1.0)
 				);
 		OrderForm orderForm = new OrderForm(2L, "IDR", items, customerAddress, customerAddress);
 		orderForm.setPaymentMethod("banktransfer");
 		orderForm.setShippingMethod("flatrate_flatrate");
 		orderForm.setShippingDescription("JNE Reguler");
 		orderForm.setShippingAmount(15000.0);
-		
+
 		log.info("orderform {}", orderForm);
 		log.info("shippingAddress {}", orderForm.getShippingAddress());
 		log.info("billingAddress {}", orderForm.getBillingAddress());

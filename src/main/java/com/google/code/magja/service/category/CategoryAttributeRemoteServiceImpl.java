@@ -18,35 +18,32 @@ import com.google.code.magja.service.GeneralServiceImpl;
 import com.google.code.magja.service.ServiceException;
 import com.google.code.magja.soap.MagentoSoapClient;
 
-public class CategoryAttributeRemoteServiceImpl extends
-		GeneralServiceImpl<CategoryAttribute> implements
-		CategoryAttributeRemoteService {
+public class CategoryAttributeRemoteServiceImpl extends GeneralServiceImpl<CategoryAttribute> implements CategoryAttributeRemoteService {
 
-	private static final long serialVersionUID=-6950318891229060141L;
-	
+	private static final long serialVersionUID = -6950318891229060141L;
+
 	public CategoryAttributeRemoteServiceImpl(MagentoSoapClient soapClient) {
 		super(soapClient);
 	}
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
-	 * com.google.code.magja.service.category.CategoryAttributeRemoteService#listAll
-	 * (java.lang.String)
+	 * com.google.code.magja.service.category.CategoryAttributeRemoteService
+	 * #listAll (java.lang.String)
 	 */
 	@Override
-	public List<CategoryAttribute> listAll(String storeView)
-			throws ServiceException {
+	public List<CategoryAttribute> listAll(String storeView) throws ServiceException {
 
 		List<CategoryAttribute> results = new ArrayList<CategoryAttribute>();
 
 		List<Map<String, Object>> attributes = null;
 		try {
-			attributes = (List<Map<String, Object>>) soapClient.callSingle(
-					ResourcePath.CategoryAttributeList, "");
+			attributes = (List<Map<String, Object>>) soapClient.callSingle(ResourcePath.CategoryAttributeList, "");
 		} catch (AxisFault e) {
-			if(debug) e.printStackTrace();
+			if (debug)
+				e.printStackTrace();
 			throw new ServiceException(e.getMessage());
 		}
 
@@ -65,19 +62,16 @@ public class CategoryAttributeRemoteServiceImpl extends
 				String type = (String) att.get("type");
 				if (type.equals("select") || type.equals("multiselect")) {
 
-//					List<Object> optParamList = new LinkedList<Object>();
-//					optParamList.add(att.get("attribute_id"));
-//					optParamList.add(storeView);
+					// List<Object> optParamList = new LinkedList<Object>();
+					// optParamList.add(att.get("attribute_id"));
+					// optParamList.add(storeView);
 
 					List<Map<String, Object>> optList = null;
 					try {
-						optList = soapClient.callArgs(
-								ResourcePath.CategoryAttributeOptions,
-								new Object[] {
-										att.get("attribute_id"), storeView
-								});
+						optList = soapClient.callArgs(ResourcePath.CategoryAttributeOptions, new Object[] { att.get("attribute_id"), storeView });
 					} catch (AxisFault e) {
-						if(debug) e.printStackTrace();
+						if (debug)
+							e.printStackTrace();
 						throw new ServiceException(e.getMessage());
 					}
 

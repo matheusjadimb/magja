@@ -35,34 +35,25 @@ public class MagentoSoapClientTest {
 	 * 
 	 * @throws Exception
 	 */
-	@Test @Ignore
+	@Test
+	@Ignore
 	public void testInstances() throws Exception {
 
-		SoapConfig soapConfig1 = new SoapConfig("soap", "test123",
-				HOST_SERVER_ONE);
-		SoapConfig soapConfig2 = new SoapConfig("soap", "test123",
-				HOST_SERVER_TWO);
-		SoapConfig soapConfig3 = new SoapConfig("soap", "test123",
-				HOST_SERVER_THREE);
+		SoapConfig soapConfig1 = new SoapConfig("soap", "test123", HOST_SERVER_ONE);
+		SoapConfig soapConfig2 = new SoapConfig("soap", "test123", HOST_SERVER_TWO);
+		SoapConfig soapConfig3 = new SoapConfig("soap", "test123", HOST_SERVER_THREE);
 
 		MagentoSoapClient client_default_one = MagentoSoapClient.getInstance();
 
-		MagentoSoapClient client_one = MagentoSoapClient
-				.getInstance(soapConfig1);
+		MagentoSoapClient client_one = MagentoSoapClient.getInstance(soapConfig1);
 
-		MagentoSoapClient client_two_one = MagentoSoapClient
-				.getInstance(soapConfig2);
-		MagentoSoapClient client_two_two = MagentoSoapClient
-				.getInstance(soapConfig2);
-		MagentoSoapClient client_two_three = MagentoSoapClient
-				.getInstance(soapConfig2);
+		MagentoSoapClient client_two_one = MagentoSoapClient.getInstance(soapConfig2);
+		MagentoSoapClient client_two_two = MagentoSoapClient.getInstance(soapConfig2);
+		MagentoSoapClient client_two_three = MagentoSoapClient.getInstance(soapConfig2);
 
-		MagentoSoapClient client_three_one = MagentoSoapClient
-				.getInstance(soapConfig3);
-		MagentoSoapClient client_three_two = MagentoSoapClient
-				.getInstance(soapConfig3);
-		MagentoSoapClient client_three_three = MagentoSoapClient
-				.getInstance(soapConfig3);
+		MagentoSoapClient client_three_one = MagentoSoapClient.getInstance(soapConfig3);
+		MagentoSoapClient client_three_two = MagentoSoapClient.getInstance(soapConfig3);
+		MagentoSoapClient client_three_three = MagentoSoapClient.getInstance(soapConfig3);
 
 		assertTrue(client_one == client_default_one);
 		assertTrue(client_two_one == client_two_two);
@@ -73,26 +64,19 @@ public class MagentoSoapClientTest {
 		MagentoSoapClient client_default_two = MagentoSoapClient.getInstance();
 		assertTrue(client_one == client_default_two);
 
-		assertEquals(client_default_one.getConfig().getRemoteHost(),
-				HOST_SERVER_ONE);
-		assertEquals(client_default_two.getConfig().getRemoteHost(),
-				HOST_SERVER_ONE);
+		assertEquals(client_default_one.getConfig().getRemoteHost(), HOST_SERVER_ONE);
+		assertEquals(client_default_two.getConfig().getRemoteHost(), HOST_SERVER_ONE);
 		assertEquals(client_one.getConfig().getRemoteHost(), HOST_SERVER_ONE);
-		assertEquals(client_two_one.getConfig().getRemoteHost(),
-				HOST_SERVER_TWO);
-		assertEquals(client_two_two.getConfig().getRemoteHost(),
-				HOST_SERVER_TWO);
-		assertEquals(client_two_three.getConfig().getRemoteHost(),
-				HOST_SERVER_TWO);
-		assertEquals(client_three_one.getConfig().getRemoteHost(),
-				HOST_SERVER_THREE);
-		assertEquals(client_three_two.getConfig().getRemoteHost(),
-				HOST_SERVER_THREE);
-		assertEquals(client_three_three.getConfig().getRemoteHost(),
-				HOST_SERVER_THREE);
+		assertEquals(client_two_one.getConfig().getRemoteHost(), HOST_SERVER_TWO);
+		assertEquals(client_two_two.getConfig().getRemoteHost(), HOST_SERVER_TWO);
+		assertEquals(client_two_three.getConfig().getRemoteHost(), HOST_SERVER_TWO);
+		assertEquals(client_three_one.getConfig().getRemoteHost(), HOST_SERVER_THREE);
+		assertEquals(client_three_two.getConfig().getRemoteHost(), HOST_SERVER_THREE);
+		assertEquals(client_three_three.getConfig().getRemoteHost(), HOST_SERVER_THREE);
 	}
 
-	@Test @Ignore
+	@Test
+	@Ignore
 	public void testTimeOutSession() throws Exception {
 
 		System.out.println("Start - " + System.currentTimeMillis());
@@ -100,18 +84,18 @@ public class MagentoSoapClientTest {
 		MagentoSoapClient soapClient = MagentoSoapClient.getInstance();
 
 		List<Map<String, Object>> remote_list = (List<Map<String, Object>>) soapClient.callSingle(ResourcePath.CountryList, "");
-		
+
 		System.out.println(remote_list);
-		
+
 		System.out.println("Wait 1 min - " + System.currentTimeMillis());
 		Thread.sleep(60000);
-		
+
 		List<Map<String, Object>> remote_list2 = (List<Map<String, Object>>) soapClient.callSingle(ResourcePath.CountryList, "");
 		System.out.println(remote_list2);
-		
+
 		System.out.println("Finished - " + System.currentTimeMillis());
 	}
-	
+
 	/**
 	 * catalog_category.level
 	 * 
@@ -121,20 +105,19 @@ public class MagentoSoapClientTest {
 	 * 
 	 * Arguments:
 	 * 
-	 *     mixed website - website code or Id (optional)
-	 *     mixed storeView - store view code or Id (optional)
-	 *     mixed parentCategory - parent category Id (optional)
-	 *     
-	 * @throws AxisFault 
+	 * mixed website - website code or Id (optional) mixed storeView - store
+	 * view code or Id (optional) mixed parentCategory - parent category Id
+	 * (optional)
+	 * 
+	 * @throws AxisFault
 	 */
-	@Test @Ignore
+	@Test
+	@Ignore
 	public void testCategoryLevelBlank() throws AxisFault {
-		SoapConfig annafiSoap = new SoapConfig("sysadmin", "",
-				"http://ceefour.annafi/demo/api/soap");
+		SoapConfig annafiSoap = new SoapConfig("sysadmin", "", "http://ceefour.annafi/demo/api/soap");
 		MagentoSoapClient client = MagentoSoapClient.getInstance(annafiSoap);
-		List<Map<String, Object>> categories = (List<Map<String, Object>>)client.callSingle(ResourcePath.CategoryLevel,
-				Arrays.asList(null, null, 45) );
-//		log.info( mapper.writeValueAsString(categories) );
+		List<Map<String, Object>> categories = (List<Map<String, Object>>) client.callSingle(ResourcePath.CategoryLevel, Arrays.asList(null, null, 45));
+		// log.info( mapper.writeValueAsString(categories) );
 		assertEquals(0, categories.size());
 	}
 

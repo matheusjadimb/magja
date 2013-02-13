@@ -16,7 +16,7 @@ import com.google.code.magja.service.ServiceException;
 
 /**
  * @author andre
- *
+ * 
  */
 public class CategoryAttributeRemoteServiceTest {
 
@@ -31,7 +31,9 @@ public class CategoryAttributeRemoteServiceTest {
 	}
 
 	/**
-	 * Test method for {@link com.google.code.magja.service.category.CategoryAttributeRemoteServiceImpl#listAll(java.lang.String)}.
+	 * Test method for
+	 * {@link com.google.code.magja.service.category.CategoryAttributeRemoteServiceImpl#listAll(java.lang.String)}
+	 * .
 	 */
 	@Test
 	public void testListAll() {

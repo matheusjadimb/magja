@@ -69,13 +69,9 @@ public class Cart extends BaseMagentoModel {
 		if (customer != null) {
 			c.setCustomer(customer);
 		}
-		CartAddress shippingAddress = CartAddress
-				.fromAttributes((Map<String, Object>) attrs
-						.get("shipping_address"));
+		CartAddress shippingAddress = CartAddress.fromAttributes((Map<String, Object>) attrs.get("shipping_address"));
 		c.setShippingAddress(shippingAddress);
-		CartAddress billingAddress = CartAddress
-				.fromAttributes((Map<String, Object>) attrs
-						.get("billing_address"));
+		CartAddress billingAddress = CartAddress.fromAttributes((Map<String, Object>) attrs.get("billing_address"));
 		c.setBillingaddress(billingAddress);
 
 		System.out.println(billingAddress);
@@ -204,11 +200,8 @@ public class Cart extends BaseMagentoModel {
 
 	@Override
 	public String toString() {
-		return "Cart [" + "quoteId=" + getId() + ", storeId=" + storeId
-				+ ", isActive=" + isActive + ", isVirtual=" + isVirtual
-				+ ", customer=" + customer + ", customerIsGuest="
-				+ customerIsGuest + ", shippingAddress=" + shippingAddress
-				+ ", billingAddress=" + billingaddress + ", properties="
+		return "Cart [" + "quoteId=" + getId() + ", storeId=" + storeId + ", isActive=" + isActive + ", isVirtual=" + isVirtual + ", customer=" + customer
+				+ ", customerIsGuest=" + customerIsGuest + ", shippingAddress=" + shippingAddress + ", billingAddress=" + billingaddress + ", properties="
 				+ properties + "]";
 
 	}

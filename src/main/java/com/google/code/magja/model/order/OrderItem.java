@@ -8,7 +8,7 @@ import com.google.code.magja.model.BaseMagentoModel;
 
 public class OrderItem extends BaseMagentoModel {
 
-	private static final long serialVersionUID=-1561918324133522580L;
+	private static final long serialVersionUID = -1561918324133522580L;
 
 	private Integer parentItemId;
 
@@ -46,7 +46,9 @@ public class OrderItem extends BaseMagentoModel {
 
 	private Double rowWeight;
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.google.code.magja.model.BaseMagentoModel#serializeToApi()
 	 */
 	@Override
@@ -62,7 +64,8 @@ public class OrderItem extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param parentItemId the parentItemId to set
+	 * @param parentItemId
+	 *            the parentItemId to set
 	 */
 	public void setParentItemId(Integer parentItemId) {
 		this.parentItemId = parentItemId;
@@ -76,7 +79,8 @@ public class OrderItem extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param productId the productId to set
+	 * @param productId
+	 *            the productId to set
 	 */
 	public void setProductId(Integer productId) {
 		this.productId = productId;
@@ -90,7 +94,8 @@ public class OrderItem extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param sku the sku to set
+	 * @param sku
+	 *            the sku to set
 	 */
 	public void setSku(String sku) {
 		this.sku = sku;
@@ -104,7 +109,8 @@ public class OrderItem extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -118,7 +124,8 @@ public class OrderItem extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param description the description to set
+	 * @param description
+	 *            the description to set
 	 */
 	public void setDescription(String description) {
 		this.description = description;
@@ -132,7 +139,8 @@ public class OrderItem extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param productOptions the productOptions to set
+	 * @param productOptions
+	 *            the productOptions to set
 	 */
 	public void setProductOptions(String productOptions) {
 		this.productOptions = productOptions;
@@ -146,7 +154,8 @@ public class OrderItem extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param weight the weight to set
+	 * @param weight
+	 *            the weight to set
 	 */
 	public void setWeight(Double weight) {
 		this.weight = weight;
@@ -160,7 +169,8 @@ public class OrderItem extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param qtyOrdered the qtyOrdered to set
+	 * @param qtyOrdered
+	 *            the qtyOrdered to set
 	 */
 	public void setQtyOrdered(Double qtyOrdered) {
 		this.qtyOrdered = qtyOrdered;
@@ -174,7 +184,8 @@ public class OrderItem extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param baseCost the baseCost to set
+	 * @param baseCost
+	 *            the baseCost to set
 	 */
 	public void setBaseCost(Double baseCost) {
 		this.baseCost = baseCost;
@@ -188,7 +199,8 @@ public class OrderItem extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param price the price to set
+	 * @param price
+	 *            the price to set
 	 */
 	public void setPrice(Double price) {
 		this.price = price;
@@ -202,7 +214,8 @@ public class OrderItem extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param basePrice the basePrice to set
+	 * @param basePrice
+	 *            the basePrice to set
 	 */
 	public void setBasePrice(Double basePrice) {
 		this.basePrice = basePrice;
@@ -216,7 +229,8 @@ public class OrderItem extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param originalPrice the originalPrice to set
+	 * @param originalPrice
+	 *            the originalPrice to set
 	 */
 	public void setOriginalPrice(Double originalPrice) {
 		this.originalPrice = originalPrice;
@@ -230,7 +244,8 @@ public class OrderItem extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param baseOriginalPrice the baseOriginalPrice to set
+	 * @param baseOriginalPrice
+	 *            the baseOriginalPrice to set
 	 */
 	public void setBaseOriginalPrice(Double baseOriginalPrice) {
 		this.baseOriginalPrice = baseOriginalPrice;
@@ -244,7 +259,8 @@ public class OrderItem extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param rowTotal the rowTotal to set
+	 * @param rowTotal
+	 *            the rowTotal to set
 	 */
 	public void setRowTotal(Double rowTotal) {
 		this.rowTotal = rowTotal;
@@ -258,7 +274,8 @@ public class OrderItem extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param baseRowTotal the baseRowTotal to set
+	 * @param baseRowTotal
+	 *            the baseRowTotal to set
 	 */
 	public void setBaseRowTotal(Double baseRowTotal) {
 		this.baseRowTotal = baseRowTotal;
@@ -272,7 +289,8 @@ public class OrderItem extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param rowInvoiced the rowInvoiced to set
+	 * @param rowInvoiced
+	 *            the rowInvoiced to set
 	 */
 	public void setRowInvoiced(Double rowInvoiced) {
 		this.rowInvoiced = rowInvoiced;
@@ -286,7 +304,8 @@ public class OrderItem extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param baseRowInvoiced the baseRowInvoiced to set
+	 * @param baseRowInvoiced
+	 *            the baseRowInvoiced to set
 	 */
 	public void setBaseRowInvoiced(Double baseRowInvoiced) {
 		this.baseRowInvoiced = baseRowInvoiced;
@@ -300,57 +319,46 @@ public class OrderItem extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param rowWeight the rowWeight to set
+	 * @param rowWeight
+	 *            the rowWeight to set
 	 */
 	public void setRowWeight(Double rowWeight) {
 		this.rowWeight = rowWeight;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result
-				+ ((baseCost == null) ? 0 : baseCost.hashCode());
-		result = prime
-				* result
-				+ ((baseOriginalPrice == null) ? 0 : baseOriginalPrice
-						.hashCode());
-		result = prime * result
-				+ ((basePrice == null) ? 0 : basePrice.hashCode());
-		result = prime * result
-				+ ((baseRowInvoiced == null) ? 0 : baseRowInvoiced.hashCode());
-		result = prime * result
-				+ ((baseRowTotal == null) ? 0 : baseRowTotal.hashCode());
-		result = prime * result
-				+ ((description == null) ? 0 : description.hashCode());
+		result = prime * result + ((baseCost == null) ? 0 : baseCost.hashCode());
+		result = prime * result + ((baseOriginalPrice == null) ? 0 : baseOriginalPrice.hashCode());
+		result = prime * result + ((basePrice == null) ? 0 : basePrice.hashCode());
+		result = prime * result + ((baseRowInvoiced == null) ? 0 : baseRowInvoiced.hashCode());
+		result = prime * result + ((baseRowTotal == null) ? 0 : baseRowTotal.hashCode());
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result
-				+ ((originalPrice == null) ? 0 : originalPrice.hashCode());
-		result = prime * result
-				+ ((parentItemId == null) ? 0 : parentItemId.hashCode());
+		result = prime * result + ((originalPrice == null) ? 0 : originalPrice.hashCode());
+		result = prime * result + ((parentItemId == null) ? 0 : parentItemId.hashCode());
 		result = prime * result + ((price == null) ? 0 : price.hashCode());
-		result = prime * result
-				+ ((productId == null) ? 0 : productId.hashCode());
-		result = prime * result
-				+ ((productOptions == null) ? 0 : productOptions.hashCode());
-		result = prime * result
-				+ ((qtyOrdered == null) ? 0 : qtyOrdered.hashCode());
-		result = prime * result
-				+ ((rowInvoiced == null) ? 0 : rowInvoiced.hashCode());
-		result = prime * result
-				+ ((rowTotal == null) ? 0 : rowTotal.hashCode());
-		result = prime * result
-				+ ((rowWeight == null) ? 0 : rowWeight.hashCode());
+		result = prime * result + ((productId == null) ? 0 : productId.hashCode());
+		result = prime * result + ((productOptions == null) ? 0 : productOptions.hashCode());
+		result = prime * result + ((qtyOrdered == null) ? 0 : qtyOrdered.hashCode());
+		result = prime * result + ((rowInvoiced == null) ? 0 : rowInvoiced.hashCode());
+		result = prime * result + ((rowTotal == null) ? 0 : rowTotal.hashCode());
+		result = prime * result + ((rowWeight == null) ? 0 : rowWeight.hashCode());
 		result = prime * result + ((sku == null) ? 0 : sku.hashCode());
 		result = prime * result + ((weight == null) ? 0 : weight.hashCode());
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -455,21 +463,17 @@ public class OrderItem extends BaseMagentoModel {
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "OrderItem [baseCost=" + baseCost + ", baseOriginalPrice="
-				+ baseOriginalPrice + ", basePrice=" + basePrice
-				+ ", baseRowInvoiced=" + baseRowInvoiced + ", baseRowTotal="
-				+ baseRowTotal + ", description=" + description + ", name="
-				+ name + ", originalPrice=" + originalPrice + ", parentItemId="
-				+ parentItemId + ", price=" + price + ", productId="
-				+ productId + ", productOptions=" + productOptions
-				+ ", qtyOrdered=" + qtyOrdered + ", rowInvoiced=" + rowInvoiced
-				+ ", rowTotal=" + rowTotal + ", rowWeight=" + rowWeight
-				+ ", sku=" + sku + ", weight=" + weight + ", id=" + id
-				+ ", properties=" + properties + "]";
+		return "OrderItem [baseCost=" + baseCost + ", baseOriginalPrice=" + baseOriginalPrice + ", basePrice=" + basePrice + ", baseRowInvoiced="
+				+ baseRowInvoiced + ", baseRowTotal=" + baseRowTotal + ", description=" + description + ", name=" + name + ", originalPrice=" + originalPrice
+				+ ", parentItemId=" + parentItemId + ", price=" + price + ", productId=" + productId + ", productOptions=" + productOptions + ", qtyOrdered="
+				+ qtyOrdered + ", rowInvoiced=" + rowInvoiced + ", rowTotal=" + rowTotal + ", rowWeight=" + rowWeight + ", sku=" + sku + ", weight=" + weight
+				+ ", id=" + id + ", properties=" + properties + "]";
 	}
 }

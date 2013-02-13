@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 
 /**
  * @author atang
- *
+ * 
  */
 @SuppressWarnings("serial")
 public class ProductRefMagja implements Serializable {
@@ -16,13 +16,12 @@ public class ProductRefMagja implements Serializable {
 	private String photoId;
 	private String shopId;
 	private String price;
-	
+
 	public ProductRefMagja() {
 		super();
 	}
-	
-	public ProductRefMagja(String id, String slug, String name,
-			String photoId, String shopId) {
+
+	public ProductRefMagja(String id, String slug, String name, String photoId, String shopId) {
 		super();
 		this.id = id;
 		this.kind = "Product";
@@ -31,9 +30,8 @@ public class ProductRefMagja implements Serializable {
 		this.photoId = photoId;
 		this.shopId = shopId;
 	}
-	
-	public ProductRefMagja(String id, String slug, String name,
-			String photoId, String shopId, String price) {
+
+	public ProductRefMagja(String id, String slug, String name, String photoId, String shopId, String price) {
 		super();
 		this.id = id;
 		this.kind = "Product";
@@ -43,7 +41,7 @@ public class ProductRefMagja implements Serializable {
 		this.shopId = shopId;
 		this.price = price;
 	}
-	
+
 	public String getKind() {
 		return kind;
 	}
@@ -59,7 +57,7 @@ public class ProductRefMagja implements Serializable {
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+
 	public String getSlug() {
 		return slug;
 	}
@@ -100,7 +98,8 @@ public class ProductRefMagja implements Serializable {
 	}
 
 	/**
-	 * @param price the price to set
+	 * @param price
+	 *            the price to set
 	 */
 	public void setPrice(String price) {
 		this.price = price;
@@ -108,8 +107,7 @@ public class ProductRefMagja implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ProductRefMagja [id=" + id + ", slug=" + slug + ", name="
-				+ name + ", photoId=" + photoId + ", shopId=" + shopId + "]";
+		return "ProductRefMagja [id=" + id + ", slug=" + slug + ", name=" + name + ", photoId=" + photoId + ", shopId=" + shopId + "]";
 	}
 
 }

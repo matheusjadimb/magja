@@ -74,11 +74,9 @@ public class CartItem extends BaseMagentoModel {
 	@Override
 	public int hashCode() {
 		int hash = 7;
-		hash = 59 * hash
-				+ (this.productId != null ? this.productId.hashCode() : 0);
+		hash = 59 * hash + (this.productId != null ? this.productId.hashCode() : 0);
 		hash = 59 * hash + (this.sku != null ? this.sku.hashCode() : 0);
-		hash = 59 * hash
-				+ (this.quantity != null ? this.quantity.hashCode() : 0);
+		hash = 59 * hash + (this.quantity != null ? this.quantity.hashCode() : 0);
 		return hash;
 	}
 
@@ -91,18 +89,13 @@ public class CartItem extends BaseMagentoModel {
 			return false;
 		}
 		final CartItem other = (CartItem) obj;
-		if (this.productId != other.productId
-				&& (this.productId == null || !this.productId
-						.equals(other.productId))) {
+		if (this.productId != other.productId && (this.productId == null || !this.productId.equals(other.productId))) {
 			return false;
 		}
-		if ((this.sku == null) ? (other.sku != null) : !this.sku
-				.equals(other.sku)) {
+		if ((this.sku == null) ? (other.sku != null) : !this.sku.equals(other.sku)) {
 			return false;
 		}
-		if (this.quantity != other.quantity
-				&& (this.quantity == null || !this.quantity
-						.equals(other.quantity))) {
+		if (this.quantity != other.quantity && (this.quantity == null || !this.quantity.equals(other.quantity))) {
 			return false;
 		}
 		return true;
@@ -115,8 +108,7 @@ public class CartItem extends BaseMagentoModel {
 	 */
 	@Override
 	public String toString() {
-		return "CartItem [productId=" + productId + ", qantity=" + quantity
-				+ ", sku=" + sku + "]";
+		return "CartItem [productId=" + productId + ", qantity=" + quantity + ", sku=" + sku + "]";
 	}
 
 }

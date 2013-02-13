@@ -8,11 +8,13 @@ import com.google.code.magja.model.BaseMagentoModel;
 
 public class CustomerGroup extends BaseMagentoModel {
 
-	private static final long serialVersionUID=-6507058128131798128L;
+	private static final long serialVersionUID = -6507058128131798128L;
 
 	private String groupCode;
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.google.code.magja.model.BaseMagentoModel#serializeToApi()
 	 */
 	@Override
@@ -28,25 +30,29 @@ public class CustomerGroup extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param groupCode the groupCode to set
+	 * @param groupCode
+	 *            the groupCode to set
 	 */
 	public void setGroupCode(String groupCode) {
 		this.groupCode = groupCode;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result
-				+ ((groupCode == null) ? 0 : groupCode.hashCode());
+		result = prime * result + ((groupCode == null) ? 0 : groupCode.hashCode());
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -66,13 +72,14 @@ public class CustomerGroup extends BaseMagentoModel {
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "CustomerGroup [groupCode=" + groupCode + ", id=" + id
-				+ ", properties=" + properties + "]";
+		return "CustomerGroup [groupCode=" + groupCode + ", id=" + id + ", properties=" + properties + "]";
 	}
 
 }

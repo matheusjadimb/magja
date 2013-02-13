@@ -16,7 +16,7 @@ public interface CustomerRemoteService extends GeneralService<Customer> {
 
 	/**
 	 * Save (id == null) or Update (id != null) a Customer
-	 *
+	 * 
 	 * @param customer
 	 * @throws ServiceException
 	 */
@@ -24,7 +24,7 @@ public interface CustomerRemoteService extends GeneralService<Customer> {
 
 	/**
 	 * Get a Customer by your id
-	 *
+	 * 
 	 * @param id
 	 * @return Customer
 	 * @throws ServiceException
@@ -33,26 +33,25 @@ public interface CustomerRemoteService extends GeneralService<Customer> {
 
 	/**
 	 * List customers based of the filter specified
-	 *
+	 * 
 	 * @param filter
 	 * @return List<Customer>
 	 * @throws ServiceException
 	 */
-	public abstract List<Customer> list(Customer filter)
-			throws ServiceException;
+	public abstract List<Customer> list(Customer filter) throws ServiceException;
 
 	/**
 	 * List customers based of the filter specified
-	 *
+	 * 
 	 * @param filter
 	 * @return List<Customer>
 	 * @throws ServiceException
-	 */	public abstract List<Customer> list2(CustomerFilter filter) 
-			throws ServiceException;
-	
+	 */
+	public abstract List<Customer> list2(CustomerFilter filter) throws ServiceException;
+
 	/**
 	 * List all customers on magento
-	 *
+	 * 
 	 * @return List<Customer>
 	 * @throws ServiceException
 	 */
@@ -60,7 +59,7 @@ public interface CustomerRemoteService extends GeneralService<Customer> {
 
 	/**
 	 * Delete a customer with the specified id
-	 *
+	 * 
 	 * @param id
 	 * @throws ServiceException
 	 */
@@ -68,7 +67,7 @@ public interface CustomerRemoteService extends GeneralService<Customer> {
 
 	/**
 	 * Delete all customer
-	 *
+	 * 
 	 * @throws ServiceException
 	 */
 	public void deleteAll() throws ServiceException;

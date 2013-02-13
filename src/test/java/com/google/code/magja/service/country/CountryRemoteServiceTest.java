@@ -16,7 +16,7 @@ import com.google.code.magja.service.ServiceException;
 
 /**
  * @author andre
- *
+ * 
  */
 public class CountryRemoteServiceTest {
 

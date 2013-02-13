@@ -4,7 +4,7 @@ import com.google.code.magja.soap.MagentoSoapClient;
 
 /**
  * @author ceefour
- *
+ * 
  */
 public class RegistryRemoteServiceImpl implements RegistryRemoteService {
 
@@ -23,10 +23,11 @@ public class RegistryRemoteServiceImpl implements RegistryRemoteService {
 	}
 
 	/**
-	 * @param soapClient the soapClient to set
+	 * @param soapClient
+	 *            the soapClient to set
 	 */
 	public void setSoapClient(MagentoSoapClient soapClient) {
 		this.soapClient = soapClient;
 	}
-	
+
 }

@@ -44,7 +44,8 @@ public class ConfigurableAttributeData extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param label the label to set
+	 * @param label
+	 *            the label to set
 	 */
 	public void setLabel(String label) {
 		this.label = label;
@@ -58,7 +59,8 @@ public class ConfigurableAttributeData extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param position the position to set
+	 * @param position
+	 *            the position to set
 	 */
 	public void setPosition(Integer position) {
 		this.position = position;
@@ -72,7 +74,8 @@ public class ConfigurableAttributeData extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param attributeId the attributeId to set
+	 * @param attributeId
+	 *            the attributeId to set
 	 */
 	public void setAttributeId(Integer attributeId) {
 		this.attributeId = attributeId;
@@ -86,7 +89,8 @@ public class ConfigurableAttributeData extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param attributeCode the attributeCode to set
+	 * @param attributeCode
+	 *            the attributeCode to set
 	 */
 	public void setAttributeCode(String attributeCode) {
 		this.attributeCode = attributeCode;
@@ -100,7 +104,8 @@ public class ConfigurableAttributeData extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param frontendLabel the frontendLabel to set
+	 * @param frontendLabel
+	 *            the frontendLabel to set
 	 */
 	public void setFrontendLabel(String frontendLabel) {
 		this.frontendLabel = frontendLabel;
@@ -114,7 +119,8 @@ public class ConfigurableAttributeData extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param htmlId the htmlId to set
+	 * @param htmlId
+	 *            the htmlId to set
 	 */
 	public void setHtmlId(String htmlId) {
 		this.htmlId = htmlId;
@@ -128,7 +134,8 @@ public class ConfigurableAttributeData extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param values the values to set
+	 * @param values
+	 *            the values to set
 	 */
 	public void setValues(List<ConfigurableData> values) {
 		this.values = values;
@@ -141,28 +148,28 @@ public class ConfigurableAttributeData extends BaseMagentoModel {
 		return serialVersionUID;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result
-				+ ((attributeCode == null) ? 0 : attributeCode.hashCode());
-		result = prime * result
-				+ ((attributeId == null) ? 0 : attributeId.hashCode());
-		result = prime * result
-				+ ((frontendLabel == null) ? 0 : frontendLabel.hashCode());
+		result = prime * result + ((attributeCode == null) ? 0 : attributeCode.hashCode());
+		result = prime * result + ((attributeId == null) ? 0 : attributeId.hashCode());
+		result = prime * result + ((frontendLabel == null) ? 0 : frontendLabel.hashCode());
 		result = prime * result + ((htmlId == null) ? 0 : htmlId.hashCode());
 		result = prime * result + ((label == null) ? 0 : label.hashCode());
-		result = prime * result
-				+ ((position == null) ? 0 : position.hashCode());
+		result = prime * result + ((position == null) ? 0 : position.hashCode());
 		result = prime * result + ((values == null) ? 0 : values.hashCode());
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -212,16 +219,15 @@ public class ConfigurableAttributeData extends BaseMagentoModel {
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "ConfigurableAttributeData [label=" + label + ", position="
-				+ position + ", attributeId=" + attributeId
-				+ ", attributeCode=" + attributeCode + ", frontendLabel="
-				+ frontendLabel + ", htmlId=" + htmlId + ", values=" + values
-				+ "]";
+		return "ConfigurableAttributeData [label=" + label + ", position=" + position + ", attributeId=" + attributeId + ", attributeCode=" + attributeCode
+				+ ", frontendLabel=" + frontendLabel + ", htmlId=" + htmlId + ", values=" + values + "]";
 	}
 
 }

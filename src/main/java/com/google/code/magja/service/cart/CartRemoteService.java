@@ -51,8 +51,7 @@ public interface CartRemoteService extends GeneralService<Cart> {
 	 * @param cart
 	 * @throws ServiceException
 	 */
-	public abstract void getLicenseAgreements(Cart cart)
-			throws ServiceException;
+	public abstract void getLicenseAgreements(Cart cart) throws ServiceException;
 
 	/**
 	 * retrieve cart totals
@@ -70,8 +69,7 @@ public interface CartRemoteService extends GeneralService<Cart> {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public abstract Cart getById(Integer id, Integer storeId)
-			throws ServiceException;
+	public abstract Cart getById(Integer id, Integer storeId) throws ServiceException;
 
 	/**
 	 * create an order from cart
@@ -97,7 +95,6 @@ public interface CartRemoteService extends GeneralService<Cart> {
 	 * @param quantity
 	 * @throws ServiceException
 	 */
-	public abstract void addProduct(Cart cart, Product product, double quantity)
-			throws ServiceException;
+	public abstract void addProduct(Cart cart, Product product, double quantity) throws ServiceException;
 
 }

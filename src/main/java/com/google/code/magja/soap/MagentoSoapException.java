@@ -4,8 +4,7 @@
 package com.google.code.magja.soap;
 
 /**
- * @author ceefour
- * Thrown by Magja SOAP implementation.
+ * @author ceefour Thrown by Magja SOAP implementation.
  */
 @SuppressWarnings("serial")
 public class MagentoSoapException extends RuntimeException {

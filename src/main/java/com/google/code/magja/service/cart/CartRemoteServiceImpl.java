@@ -168,9 +168,9 @@ public class CartRemoteServiceImpl extends GeneralServiceImpl<Cart> implements C
 	@Override
 	public void order(Cart cart) throws ServiceException {
 		try {
-//			Map<String, Object> callParams = new HashMap<String, Object>();
-//			callParams.put("quoteId", cart.getId());
-//			callParams.put("storeId", cart.getStoreId());
+			// Map<String, Object> callParams = new HashMap<String, Object>();
+			// callParams.put("quoteId", cart.getId());
+			// callParams.put("storeId", cart.getStoreId());
 
 			Boolean success = (Boolean) soapClient.callArgs(ResourcePath.ShoppingCartOrder, new Object[] { cart.getId(), cart.getStoreId() });
 			// FIXME: getOrder...

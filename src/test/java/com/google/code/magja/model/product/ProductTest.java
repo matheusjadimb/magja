@@ -7,11 +7,9 @@ import org.junit.Test;
 
 /**
  * @author andre
- *
+ * 
  */
 public class ProductTest {
-
-
 
 	/**
 	 * Test the reflection of Product

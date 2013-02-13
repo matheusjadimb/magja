@@ -17,7 +17,7 @@ import com.google.code.magja.utils.MagjaFileUtils;
 
 /**
  * @author andre
- *
+ * 
  */
 public class ProductMediaTest {
 
@@ -26,9 +26,7 @@ public class ProductMediaTest {
 
 		String url = "http://www.rockstore.com.br/store/catalog/GV003_foto.jpg";
 
-	    byte[] data = MagjaFileUtils.getBytesFromFileURL(url);
-
-
+		byte[] data = MagjaFileUtils.getBytesFromFileURL(url);
 
 	}
 
@@ -37,14 +35,14 @@ public class ProductMediaTest {
 
 		String url = "http://www.rockstore.com.br/store/catalog/GV003_foto.jpg";
 
-	    byte[] data = MagjaFileUtils.getBytesFromFileURL(url);
+		byte[] data = MagjaFileUtils.getBytesFromFileURL(url);
 
-	    //String filename = u.getFile().substring(url.lastIndexOf('/') + 1);
-	    //String filename = "/home/andre/DEV/temp/image.jpg";
-	    //FileOutputStream out = new FileOutputStream(filename);
-	    //out.write(data);
-	    //out.flush();
-	    //out.close();
+		// String filename = u.getFile().substring(url.lastIndexOf('/') + 1);
+		// String filename = "/home/andre/DEV/temp/image.jpg";
+		// FileOutputStream out = new FileOutputStream(filename);
+		// out.write(data);
+		// out.flush();
+		// out.close();
 
 	}
 
@@ -62,8 +60,7 @@ public class ProductMediaTest {
 		// image = ImageIO.read(is);
 
 		// Read from a URL
-		URL url = new URL(
-				"http://www.rockstore.com.br/store/catalog/GV003_foto.jpg");
+		URL url = new URL("http://www.rockstore.com.br/store/catalog/GV003_foto.jpg");
 		image = ImageIO.read(url);
 
 		System.out.println(image.toString());

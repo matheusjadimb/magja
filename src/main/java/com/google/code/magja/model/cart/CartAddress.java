@@ -10,9 +10,9 @@ import com.google.code.magja.model.address.Address;
  * 
  */
 public class CartAddress extends Address {
-	
+
 	private static final long serialVersionUID = -5542075721215076672L;
-	
+
 	public Type type;
 
 	/*
@@ -79,13 +79,9 @@ public class CartAddress extends Address {
 	 */
 	@Override
 	public String toString() {
-		return "CartAddress [city=" + city + ", company=" + company
-				+ ", countryCode=" + countryCode + ", fax=" + fax
-				+ ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", middleName=" + middleName + ", postCode=" + postCode
-				+ ", prefix=" + prefix + ", region=" + region + ", street="
-				+ street + ", suffix=" + suffix + ", telephone=" + telephone
-				+ ", id=" + id + ", properties=" + properties + "]";
+		return "CartAddress [city=" + city + ", company=" + company + ", countryCode=" + countryCode + ", fax=" + fax + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", middleName=" + middleName + ", postCode=" + postCode + ", prefix=" + prefix + ", region=" + region
+				+ ", street=" + street + ", suffix=" + suffix + ", telephone=" + telephone + ", id=" + id + ", properties=" + properties + "]";
 	}
 
 	public static enum Type {

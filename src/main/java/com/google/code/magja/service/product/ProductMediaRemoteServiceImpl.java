@@ -20,255 +20,227 @@ import com.google.code.magja.service.GeneralServiceImpl;
 import com.google.code.magja.service.ServiceException;
 import com.google.code.magja.soap.MagentoSoapClient;
 
-public class ProductMediaRemoteServiceImpl extends
-        GeneralServiceImpl<ProductMedia> implements ProductMediaRemoteService {
+public class ProductMediaRemoteServiceImpl extends GeneralServiceImpl<ProductMedia> implements ProductMediaRemoteService {
 
-	private transient Logger log = LoggerFactory
-			.getLogger(ProductMediaRemoteServiceImpl.class);
-    private static final long serialVersionUID = -1848723516561700531L;
+	private transient Logger log = LoggerFactory.getLogger(ProductMediaRemoteServiceImpl.class);
+	private static final long serialVersionUID = -1848723516561700531L;
 
-    public ProductMediaRemoteServiceImpl(MagentoSoapClient soapClient) {
+	public ProductMediaRemoteServiceImpl(MagentoSoapClient soapClient) {
 		super(soapClient);
 	}
 
 	/**
-     * Build the object ProductMedia with the Map returned by the api
-     *
-     * @param map
-     * @return ProductMedia
-     */
-    private ProductMedia buildProductMedia(Map<String, Object> map) {
-        ProductMedia prd_media = new ProductMedia();
+	 * Build the object ProductMedia with the Map returned by the api
+	 * 
+	 * @param map
+	 * @return ProductMedia
+	 */
+	private ProductMedia buildProductMedia(Map<String, Object> map) {
+		ProductMedia prd_media = new ProductMedia();
 
-        for (Map.Entry<String, Object> att : map.entrySet())
-            prd_media.set(att.getKey(), att.getValue());
+		for (Map.Entry<String, Object> att : map.entrySet())
+			prd_media.set(att.getKey(), att.getValue());
 
-        if (map.get("types") != null) {
-            prd_media.setTypes(new HashSet<ProductMedia.Type>());
-            List<String> types = (List<String>) map.get("types");
-            for (String type : types)
-                prd_media.getTypes().add(
-                        ProductMedia.Type.getValueOfString(type));
-        }
+		if (map.get("types") != null) {
+			prd_media.setTypes(new HashSet<ProductMedia.Type>());
+			List<String> types = (List<String>) map.get("types");
+			for (String type : types)
+				prd_media.getTypes().add(ProductMedia.Type.getValueOfString(type));
+		}
 
-        return prd_media;
-    }
+		return prd_media;
+	}
 
-    /*
-      * (non-Javadoc)
-      *
-      * @see
-      * com.google.code.magja.service.product.ProductMediaRemoteService#delete(code
-      * .google.magja.model.product.ProductMedia)
-      */
-    @Override
-    public void delete(ProductMedia productMedia) throws ServiceException {
-        if (!ProductServiceUtil.validateProduct(productMedia.getProduct()))
-            throw new ServiceException(
-                    "the product attribute for the media must be setted.");
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.google.code.magja.service.product.ProductMediaRemoteService#delete
+	 * (code .google.magja.model.product.ProductMedia)
+	 */
+	@Override
+	public void delete(ProductMedia productMedia) throws ServiceException {
+		if (!ProductServiceUtil.validateProduct(productMedia.getProduct()))
+			throw new ServiceException("the product attribute for the media must be setted.");
 
-//        List<Object> params = new LinkedList<Object>();
-//        params.add((productMedia.getProduct().getId() != null ? productMedia
-//                .getProduct().getId() : productMedia.getProduct().getSku()));
-//        params.add(productMedia.getFile());
+		// List<Object> params = new LinkedList<Object>();
+		// params.add((productMedia.getProduct().getId() != null ? productMedia
+		// .getProduct().getId() : productMedia.getProduct().getSku()));
+		// params.add(productMedia.getFile());
 
-        Boolean success = false;
-        try {
-            success = (Boolean) soapClient.callArgs(
-                    ResourcePath.ProductAttributeMediaRemove, new Object[] {
-                    		productMedia.getProduct().getId() != null ? 
-                    				productMedia.getProduct().getId() : productMedia.getProduct().getSku(),
-                                    productMedia.getFile()
-                    });
-        } catch (AxisFault e) {
-            if (debug) e.printStackTrace();
-            throw new ServiceException(e.getMessage());
-        }
+		Boolean success = false;
+		try {
+			success = (Boolean) soapClient.callArgs(ResourcePath.ProductAttributeMediaRemove,
+					new Object[] { productMedia.getProduct().getId() != null ? productMedia.getProduct().getId() : productMedia.getProduct().getSku(),
+							productMedia.getFile() });
+		} catch (AxisFault e) {
+			if (debug)
+				e.printStackTrace();
+			throw new ServiceException(e.getMessage());
+		}
 
-        if (!success)
-            throw new ServiceException("Error deleting the Product Media");
-    }
+		if (!success)
+			throw new ServiceException("Error deleting the Product Media");
+	}
 
-    /*
-      * (non-Javadoc)
-      *
-      * @seecom.google.code.magja.service.product.ProductMediaRemoteService#
-      * getByProductAndFile(com.google.code.magja.model.product.Product,
-      * java.lang.String)
-      */
-    @Override
-    public ProductMedia getByProductAndFile(Product product, String file)
-            throws ServiceException {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seecom.google.code.magja.service.product.ProductMediaRemoteService#
+	 * getByProductAndFile(com.google.code.magja.model.product.Product,
+	 * java.lang.String)
+	 */
+	@Override
+	public ProductMedia getByProductAndFile(Product product, String file) throws ServiceException {
 
-        if (!ProductServiceUtil.validateProduct(product))
-            throw new ServiceException(
-                    "the product for the media must be setted.");
+		if (!ProductServiceUtil.validateProduct(product))
+			throw new ServiceException("the product for the media must be setted.");
 
-//        List<Object> params = new LinkedList<Object>();
-//        params.add((product.getId() != null ? product.getId() : product
-//                .getSku()));
-//        params.add(file);
+		// List<Object> params = new LinkedList<Object>();
+		// params.add((product.getId() != null ? product.getId() : product
+		// .getSku()));
+		// params.add(file);
 
-        Map<String, Object> media = null;
-        try {
-            media = soapClient.callArgs(
-                    ResourcePath.ProductAttributeMediaInfo, new Object[] {
-                    		product.getId() != null ? product.getId() : product
-                                    .getSku(),
-                                    file
-                    });
-        } catch (AxisFault e) {
-            if (debug) e.printStackTrace();
-            throw new ServiceException(e.getMessage());
-        }
+		Map<String, Object> media = null;
+		try {
+			media = soapClient.callArgs(ResourcePath.ProductAttributeMediaInfo, new Object[] { product.getId() != null ? product.getId() : product.getSku(),
+					file });
+		} catch (AxisFault e) {
+			if (debug)
+				e.printStackTrace();
+			throw new ServiceException(e.getMessage());
+		}
 
-        return buildProductMedia(media);
-    }
+		return buildProductMedia(media);
+	}
 
-    /*
-      * (non-Javadoc)
-      *
-      * @seecom.google.code.magja.service.product.ProductMediaRemoteService#
-      * getMd5(java.lang.String)
-      */
-    @Override
-    public String getMd5(String file) throws ServiceException {
-//        List<Object> params = new LinkedList<Object>();
-//        params.add(file);
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seecom.google.code.magja.service.product.ProductMediaRemoteService#
+	 * getMd5(java.lang.String)
+	 */
+	@Override
+	public String getMd5(String file) throws ServiceException {
+		// List<Object> params = new LinkedList<Object>();
+		// params.add(file);
 
-        String media = null;
-        try {
-            media = (String) soapClient.callArgs(
-                    ResourcePath.ProductAttributeMediaMd5, new Object[] {
-                    		file
-                    });
-        } catch (AxisFault e) {
-            if (debug) e.printStackTrace();
-            throw new ServiceException(e.getMessage());
-        }
+		String media = null;
+		try {
+			media = (String) soapClient.callArgs(ResourcePath.ProductAttributeMediaMd5, new Object[] { file });
+		} catch (AxisFault e) {
+			if (debug)
+				e.printStackTrace();
+			throw new ServiceException(e.getMessage());
+		}
 
-        return media;
-    }
+		return media;
+	}
 
-    /*
-      * (non-Javadoc)
-      *
-      * @see
-      * com.google.code.magja.service.product.ProductMediaRemoteService#listByProduct
-      * (com.google.code.magja.model.product.Product)
-      */
-    @Override
-    public List<ProductMedia> listByProduct(Product product)
-            throws ServiceException {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.google.code.magja.service.product.ProductMediaRemoteService#listByProduct
+	 * (com.google.code.magja.model.product.Product)
+	 */
+	@Override
+	public List<ProductMedia> listByProduct(Product product) throws ServiceException {
 
-        if (!ProductServiceUtil.validateProduct(product))
-            throw new ServiceException(
-                    "The product must have the id or the sku seted for list medias");
+		if (!ProductServiceUtil.validateProduct(product))
+			throw new ServiceException("The product must have the id or the sku seted for list medias");
 
-        List<ProductMedia> result = new ArrayList<ProductMedia>();
+		List<ProductMedia> result = new ArrayList<ProductMedia>();
 
-        List<Map<String, Object>> medias = null;
-        try {
-            medias = soapClient.callSingle(
-                    ResourcePath.ProductAttributeMediaList,
-                    (product.getId() != null ? product.getId() : product
-                            .getSku()));
-        } catch (AxisFault e) {
-            if (debug) e.printStackTrace();
-            throw new ServiceException(e.getMessage());
-        }
+		List<Map<String, Object>> medias = null;
+		try {
+			medias = soapClient.callSingle(ResourcePath.ProductAttributeMediaList, (product.getId() != null ? product.getId() : product.getSku()));
+		} catch (AxisFault e) {
+			if (debug)
+				e.printStackTrace();
+			throw new ServiceException(e.getMessage());
+		}
 
-        if (medias == null)
-            return null;
+		if (medias == null)
+			return null;
 
-        for (Map<String, Object> media : medias) {
-            ProductMedia productMedia = buildProductMedia(media);
-            productMedia.setProduct(product);
-            result.add(productMedia);
-        }
+		for (Map<String, Object> media : medias) {
+			ProductMedia productMedia = buildProductMedia(media);
+			productMedia.setProduct(product);
+			result.add(productMedia);
+		}
 
-        return result;
-    }
+		return result;
+	}
 
-    /*
-      * (non-Javadoc)
-      *
-      * @see
-      * com.google.code.magja.service.product.ProductMediaRemoteService#create(code
-      * .google.magja.model.product.ProductMedia)
-      */
-    @Override
-    public void create(ProductMedia productMedia) throws ServiceException {
-        if (!ProductServiceUtil.validateProduct(productMedia.getProduct()))
-            throw new ServiceException(
-                    "the product attribute for the media must be setted.");
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.google.code.magja.service.product.ProductMediaRemoteService#create
+	 * (code .google.magja.model.product.ProductMedia)
+	 */
+	@Override
+	public void create(ProductMedia productMedia) throws ServiceException {
+		if (!ProductServiceUtil.validateProduct(productMedia.getProduct()))
+			throw new ServiceException("the product attribute for the media must be setted.");
 
-        if (productMedia.getImage() == null)
-            throw new ServiceException("the image is null.");
+		if (productMedia.getImage() == null)
+			throw new ServiceException("the image is null.");
 
-        if (productMedia.getImage().getData() == null)
-            throw new ServiceException("invalid binary data for the image.");
+		if (productMedia.getImage().getData() == null)
+			throw new ServiceException("invalid binary data for the image.");
 
-        try {
-            String result = (String) soapClient.callArgs(
-                    ResourcePath.ProductAttributeMediaCreate, productMedia
-                    	.serializeToApi());
+		try {
+			String result = (String) soapClient.callArgs(ResourcePath.ProductAttributeMediaCreate, productMedia.serializeToApi());
 
-            productMedia.setFile(result);
+			productMedia.setFile(result);
 
-        } catch (AxisFault e) {
-        	log.error("Cannot create ProductMedia " + productMedia.getLabel(), e);
-            if (debug) e.printStackTrace();
-            throw new ServiceException("Cannot create ProductMedia " + productMedia.getLabel(), e);
-        }
-    }
+		} catch (AxisFault e) {
+			log.error("Cannot create ProductMedia " + productMedia.getLabel(), e);
+			if (debug)
+				e.printStackTrace();
+			throw new ServiceException("Cannot create ProductMedia " + productMedia.getLabel(), e);
+		}
+	}
 
+	@Override
+	public Boolean update(ProductMedia productMedia) throws ServiceException {
+		if (!ProductServiceUtil.validateProduct(productMedia.getProduct()))
+			throw new ServiceException("the product attribute for the media must be setted.");
 
-    @Override
-    public Boolean update(ProductMedia productMedia) throws ServiceException {
-        if (!ProductServiceUtil.validateProduct(productMedia.getProduct()))
-            throw new ServiceException(
-                    "the product attribute for the media must be setted.");
+		Map<String, Object> props = productMedia.getAllProperties();
+		String[] str_types = new String[productMedia.getTypes().size()];
+		int i = 0;
+		for (ProductMedia.Type type : productMedia.getTypes())
+			str_types[i++] = type.toString().toLowerCase();
 
+		if (str_types.length > 0) {
+			props.put("types", str_types);
+		} else {
+			props.put("types", "");
+		}
 
-        Map<String, Object> props = productMedia.getAllProperties();
-        String[] str_types = new String[productMedia.getTypes().size()];
-        int i = 0;
-        for (ProductMedia.Type type : productMedia.getTypes())
-            str_types[i++] = type.toString().toLowerCase();
+		props.put("file", productMedia.getImage().serializeToApi());
 
-        if (str_types.length > 0) {
-            props.put("types", str_types);
-        } else {
-            props.put("types", "");
-        }
+		// List<Object> newMedia = new LinkedList<Object>();
+		// newMedia.add(productMedia.getProduct().getSku());
+		// newMedia.add(productMedia.getFile());
+		//
+		// props.remove("url");
+		//
+		// newMedia.add(props);
 
-        props.put("file", productMedia.getImage().serializeToApi());
+		try {
+			Boolean result = (Boolean) soapClient.callArgs(ResourcePath.ProductAttributeMediaUpdate, new Object[] { productMedia.getProduct().getSku(),
+					productMedia.getFile(), props.remove("url") });
+			return result;
+		} catch (AxisFault e) {
+			if (debug)
+				e.printStackTrace();
+			throw new ServiceException(e.getMessage());
+		}
 
-//        List<Object> newMedia = new LinkedList<Object>();
-//        newMedia.add(productMedia.getProduct().getSku());
-//        newMedia.add(productMedia.getFile());
-//
-//        props.remove("url");
-//
-//        newMedia.add(props);
-
-
-        try {
-            Boolean result = (Boolean) soapClient.callArgs(
-                    ResourcePath.ProductAttributeMediaUpdate, new Object[] {
-                    		productMedia.getProduct().getSku(),
-                    		productMedia.getFile(),
-                    		props.remove("url")
-                    });
-            return result;
-        } catch (AxisFault e) {
-            if (debug) e.printStackTrace();
-            throw new ServiceException(e.getMessage());
-        }
-
-
-    }
-
+	}
 
 }

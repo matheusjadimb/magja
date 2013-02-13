@@ -16,18 +16,17 @@ import com.google.code.magja.service.GeneralServiceImpl;
 import com.google.code.magja.service.ServiceException;
 import com.google.code.magja.soap.MagentoSoapClient;
 
-public class CountryRemoteServiceImpl extends GeneralServiceImpl<Country>
-		implements CountryRemoteService {
+public class CountryRemoteServiceImpl extends GeneralServiceImpl<Country> implements CountryRemoteService {
 
-	private static final long serialVersionUID=1671845484676469453L;
-	
+	private static final long serialVersionUID = 1671845484676469453L;
+
 	public CountryRemoteServiceImpl(MagentoSoapClient soapClient) {
 		super(soapClient);
 	}
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see com.google.code.magja.service.country.CountryRemoteService#list()
 	 */
 	@Override
@@ -37,10 +36,10 @@ public class CountryRemoteServiceImpl extends GeneralServiceImpl<Country>
 
 		List<Map<String, Object>> remote_list = null;
 		try {
-			remote_list = (List<Map<String, Object>>) soapClient.callSingle(
-					ResourcePath.CountryList, "");
+			remote_list = (List<Map<String, Object>>) soapClient.callSingle(ResourcePath.CountryList, "");
 		} catch (AxisFault e) {
-			if(debug) e.printStackTrace();
+			if (debug)
+				e.printStackTrace();
 			throw new ServiceException(e.getMessage());
 		}
 
@@ -62,14 +61,16 @@ public class CountryRemoteServiceImpl extends GeneralServiceImpl<Country>
 
 	/*
 	 * (non-Javadoc)
-	 *
-	 * @see com.google.code.magja.service.country.CountryRemoteService#getCountryByName()
+	 * 
+	 * @see
+	 * com.google.code.magja.service.country.CountryRemoteService#getCountryByName
+	 * ()
 	 */
 	@Override
 	public Country getCountryByName(String countryName) throws ServiceException {
 		List<Country> countries = list();
-		for(Country country : countries) {
-			if(country.getName().equals(countryName)) {
+		for (Country country : countries) {
+			if (country.getName().equals(countryName)) {
 				return country;
 			}
 		}
@@ -80,8 +81,10 @@ public class CountryRemoteServiceImpl extends GeneralServiceImpl<Country>
 
 	/*
 	 * (non-Javadoc)
-	 *
-	 * @see com.google.code.magja.service.country.CountryRemoteService#getCountryIdByName()
+	 * 
+	 * @see
+	 * com.google.code.magja.service.country.CountryRemoteService#getCountryIdByName
+	 * ()
 	 */
 	@Override
 	public String getCountryIdByName(String countryName) throws ServiceException {

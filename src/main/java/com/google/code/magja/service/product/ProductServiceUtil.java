@@ -15,8 +15,7 @@ public class ProductServiceUtil {
 	 * @return
 	 */
 	protected static Boolean validateProduct(Product product) {
-		return product != null
-				&& (product.getId() != null || product.getSku() != null);
+		return product != null && (product.getId() != null || product.getSku() != null);
 	}
 
 }

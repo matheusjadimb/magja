@@ -33,7 +33,8 @@ public class ConfigurableData extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param attributeId the attributeId to set
+	 * @param attributeId
+	 *            the attributeId to set
 	 */
 	public void setAttributeId(Integer attributeId) {
 		this.attributeId = attributeId;
@@ -47,7 +48,8 @@ public class ConfigurableData extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param label the label to set
+	 * @param label
+	 *            the label to set
 	 */
 	public void setLabel(String label) {
 		this.label = label;
@@ -61,7 +63,8 @@ public class ConfigurableData extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param valueIndex the valueIndex to set
+	 * @param valueIndex
+	 *            the valueIndex to set
 	 */
 	public void setValueIndex(Integer valueIndex) {
 		this.valueIndex = valueIndex;
@@ -75,7 +78,8 @@ public class ConfigurableData extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param isPercent the isPercent to set
+	 * @param isPercent
+	 *            the isPercent to set
 	 */
 	public void setIsPercent(Boolean isPercent) {
 		this.isPercent = isPercent;
@@ -89,32 +93,33 @@ public class ConfigurableData extends BaseMagentoModel {
 	}
 
 	/**
-	 * @param pricingValue the pricingValue to set
+	 * @param pricingValue
+	 *            the pricingValue to set
 	 */
 	public void setPricingValue(Double pricingValue) {
 		this.pricingValue = pricingValue;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result
-				+ ((attributeId == null) ? 0 : attributeId.hashCode());
-		result = prime * result
-				+ ((isPercent == null) ? 0 : isPercent.hashCode());
+		result = prime * result + ((attributeId == null) ? 0 : attributeId.hashCode());
+		result = prime * result + ((isPercent == null) ? 0 : isPercent.hashCode());
 		result = prime * result + ((label == null) ? 0 : label.hashCode());
-		result = prime * result
-				+ ((pricingValue == null) ? 0 : pricingValue.hashCode());
-		result = prime * result
-				+ ((valueIndex == null) ? 0 : valueIndex.hashCode());
+		result = prime * result + ((pricingValue == null) ? 0 : pricingValue.hashCode());
+		result = prime * result + ((valueIndex == null) ? 0 : valueIndex.hashCode());
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -154,15 +159,15 @@ public class ConfigurableData extends BaseMagentoModel {
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "ConfigurableData [attributeId=" + attributeId
-				+ ", label=" + label + ", valueIndex=" + valueIndex
-				+ ", isPercent=" + isPercent + ", pricingValue=" + pricingValue
-				+ "]";
+		return "ConfigurableData [attributeId=" + attributeId + ", label=" + label + ", valueIndex=" + valueIndex + ", isPercent=" + isPercent
+				+ ", pricingValue=" + pricingValue + "]";
 	}
 
 }

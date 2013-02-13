@@ -12,7 +12,7 @@ import com.google.code.magja.model.BaseMagentoModel;
  * 
  */
 public class CartTotal extends BaseMagentoModel {
-	
+
 	private static final long serialVersionUID = 6587998968228639825L;
 
 	private String title;

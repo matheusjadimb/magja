@@ -69,8 +69,7 @@ public class Customer extends BaseMagentoModel {
 				customer.setFirstName((String) attrs.get("customer_firstname"));
 			}
 			if (attrs.get("customer_middlename") != null) {
-				customer.setMiddleName((String) attrs
-						.get("customer_middlename"));
+				customer.setMiddleName((String) attrs.get("customer_middlename"));
 			}
 			if (attrs.get("customer_lastname") != null) {
 				customer.setLastName((String) attrs.get("customer_lastname"));
@@ -79,14 +78,11 @@ public class Customer extends BaseMagentoModel {
 				customer.setLastName((String) attrs.get("customer_lastname"));
 			}
 			if (attrs.get("customer_group_id") != null) {
-				customer.setGroupId(new Integer((String) attrs
-						.get("customer_group_id")));
+				customer.setGroupId(new Integer((String) attrs.get("customer_group_id")));
 			}
 			if (attrs.get("customer_gender") != null) {
-				Integer gender = new Integer(
-						(String) attrs.get("customer_gender"));
-				customer.setGender(gender.equals(new Integer(1)) ? Gender.MALE
-						: Gender.FEMALE);
+				Integer gender = new Integer((String) attrs.get("customer_gender"));
+				customer.setGender(gender.equals(new Integer(1)) ? Gender.MALE : Gender.FEMALE);
 			}
 
 			return customer;
@@ -325,26 +321,19 @@ public class Customer extends BaseMagentoModel {
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result
-				+ ((createdAt == null) ? 0 : createdAt.hashCode());
+		result = prime * result + ((createdAt == null) ? 0 : createdAt.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result
-				+ ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((gender == null) ? 0 : gender.hashCode());
 		result = prime * result + ((groupId == null) ? 0 : groupId.hashCode());
-		result = prime * result
-				+ ((lastName == null) ? 0 : lastName.hashCode());
-		result = prime * result
-				+ ((middleName == null) ? 0 : middleName.hashCode());
-		result = prime * result
-				+ ((password == null) ? 0 : password.hashCode());
-		result = prime * result
-				+ ((passwordHash == null) ? 0 : passwordHash.hashCode());
+		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+		result = prime * result + ((middleName == null) ? 0 : middleName.hashCode());
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((passwordHash == null) ? 0 : passwordHash.hashCode());
 		result = prime * result + ((prefix == null) ? 0 : prefix.hashCode());
 		result = prime * result + ((storeId == null) ? 0 : storeId.hashCode());
 		result = prime * result + ((suffix == null) ? 0 : suffix.hashCode());
-		result = prime * result
-				+ ((websiteId == null) ? 0 : websiteId.hashCode());
+		result = prime * result + ((websiteId == null) ? 0 : websiteId.hashCode());
 		return result;
 	}
 
@@ -437,14 +426,9 @@ public class Customer extends BaseMagentoModel {
 	 */
 	@Override
 	public String toString() {
-		return "Customer [createdAt=" + createdAt + ", email=" + email
-				+ ", firstName=" + firstName + ", gender=" + gender
-				+ ", groupId=" + groupId + ", lastName=" + lastName
-				+ ", middleName=" + middleName + ", password=" + password
-				+ ", passwordHash=" + passwordHash + ", prefix=" + prefix
-				+ ", storeId=" + storeId + ", suffix=" + suffix
-				+ ", websiteId=" + websiteId + ", id=" + id + ", properties="
-				+ properties + "]";
+		return "Customer [createdAt=" + createdAt + ", email=" + email + ", firstName=" + firstName + ", gender=" + gender + ", groupId=" + groupId
+				+ ", lastName=" + lastName + ", middleName=" + middleName + ", password=" + password + ", passwordHash=" + passwordHash + ", prefix=" + prefix
+				+ ", storeId=" + storeId + ", suffix=" + suffix + ", websiteId=" + websiteId + ", id=" + id + ", properties=" + properties + "]";
 	}
 
 }

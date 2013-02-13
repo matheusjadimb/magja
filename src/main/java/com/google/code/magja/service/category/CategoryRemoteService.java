@@ -14,71 +14,69 @@ import com.google.code.magja.service.ServiceException;
 
 public interface CategoryRemoteService extends GeneralService<Category> {
 
-    public abstract Category getByIdClean(Integer id) throws ServiceException;
+	public abstract Category getByIdClean(Integer id) throws ServiceException;
 
-    public abstract Category getByIdWithParent(Integer id) throws ServiceException;
+	public abstract Category getByIdWithParent(Integer id) throws ServiceException;
 
-    public abstract Category getByIdWithChildren(Integer id) throws ServiceException;
+	public abstract Category getByIdWithChildren(Integer id) throws ServiceException;
 
-    public abstract Category getByIdWithParentAndChildren(Integer id) throws ServiceException;
+	public abstract Category getByIdWithParentAndChildren(Integer id) throws ServiceException;
 
-    public abstract Category getTree(Integer id) throws ServiceException;
+	public abstract Category getTree(Integer id) throws ServiceException;
 
-    public abstract void print(Category category) throws Exception;
+	public abstract void print(Category category) throws Exception;
 
-    public abstract List<Category> search(Category category, List<String> childrenNames) throws ServiceException;
+	public abstract List<Category> search(Category category, List<String> childrenNames) throws ServiceException;
 
-    public abstract int save(Category category) throws ServiceException;
+	public abstract int save(Category category) throws ServiceException;
 
-    public abstract int save(Category category, String storeView) throws ServiceException;
+	public abstract int save(Category category, String storeView) throws ServiceException;
 
-    public abstract Category searchChild(Category category, Category search) throws ServiceException;
+	public abstract Category searchChild(Category category, Category search) throws ServiceException;
 
-    public abstract void delete(Integer id) throws ServiceException;
+	public abstract void delete(Integer id) throws ServiceException;
 
-    public abstract void deleteAllChildren(Integer id) throws ServiceException;
+	public abstract void deleteAllChildren(Integer id) throws ServiceException;
 
-    public abstract Category getDefaultParent() throws ServiceException;
+	public abstract Category getDefaultParent() throws ServiceException;
 
-    public abstract Category linkCategory(List<Category> categories) throws ServiceException;
+	public abstract Category linkCategory(List<Category> categories) throws ServiceException;
 
-    public abstract Category create(Integer parentId, String categoryName) throws ServiceException;
+	public abstract Category create(Integer parentId, String categoryName) throws ServiceException;
 
-    public abstract List<Category> create(Integer parentId, List<String> categoryNames) throws ServiceException;
+	public abstract List<Category> create(Integer parentId, List<String> categoryNames) throws ServiceException;
 
-    public abstract void assignProduct(Category category, Product product) throws ServiceException;
+	public abstract void assignProduct(Category category, Product product) throws ServiceException;
 
-    public abstract List<Category> create(Integer parentId, Category category) throws ServiceException;
+	public abstract List<Category> create(Integer parentId, Category category) throws ServiceException;
 
-    public abstract Category getMinimalCategory(Integer parentId, String categoryName);
+	public abstract Category getMinimalCategory(Integer parentId, String categoryName);
 
-    public abstract Category getRequiredCategory(Integer parentId, String categoryName, String availableSortBy, String defaultSortBy, Boolean active, Boolean anchor);
+	public abstract Category getRequiredCategory(Integer parentId, String categoryName, String availableSortBy, String defaultSortBy, Boolean active,
+			Boolean anchor);
 
-    public abstract List<Product> getProducts(Category category) throws ServiceException;
+	public abstract List<Product> getProducts(Category category) throws ServiceException;
 
-    public abstract List<Product> getProducts(Category category, Integer storeID, boolean dependencies) throws ServiceException;
+	public abstract List<Product> getProducts(Category category, Integer storeID, boolean dependencies) throws ServiceException;
 
-    public abstract List<Category> getLastCategories(Category categoryTree);
+	public abstract List<Category> getLastCategories(Category categoryTree);
 
-    public abstract List<Category> findEmpty(Integer id) throws ServiceException;
+	public abstract List<Category> findEmpty(Integer id) throws ServiceException;
 
-    public abstract Integer deleteEmpty(Integer id) throws ServiceException;
+	public abstract Integer deleteEmpty(Integer id) throws ServiceException;
 
-    public abstract Boolean isEmpty(Category category) throws ServiceException;
+	public abstract Boolean isEmpty(Category category) throws ServiceException;
 
-    public abstract void deleteEmptyRecursive(Category category) throws ServiceException;
+	public abstract void deleteEmptyRecursive(Category category) throws ServiceException;
 
-    void assignProductWithPosition(Category category, Product product, Integer position)
-            throws ServiceException;
+	void assignProductWithPosition(Category category, Product product, Integer position) throws ServiceException;
 
-    void removeProduct(Category category, Product product)
-            throws ServiceException;
+	void removeProduct(Category category, Product product) throws ServiceException;
 
-    /**
-	 * Return map of categories where the key
-	 * is category URL path (e.g. "accessories/bb-pouch")
-	 * and the value is a map of [id, name]. 
-     */
+	/**
+	 * Return map of categories where the key is category URL path (e.g.
+	 * "accessories/bb-pouch") and the value is a map of [id, name].
+	 */
 	public Map<String, Category> listPaths() throws ServiceException;
 
 }

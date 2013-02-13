@@ -7,7 +7,7 @@ import com.google.code.magja.soap.SoapClient;
 
 /**
  * @author andre
- *
+ * 
  */
 public class ConnectionMock extends Connection {
 

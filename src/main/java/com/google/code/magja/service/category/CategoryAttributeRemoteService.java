@@ -14,12 +14,11 @@ public interface CategoryAttributeRemoteService extends GeneralService<CategoryA
 
 	/**
 	 * List all categories attributes from a specific store view
+	 * 
 	 * @param storeView
 	 * @return List<CategoryAttribute>
 	 * @throws ServiceException
 	 */
 	public abstract List<CategoryAttribute> listAll(String storeView) throws ServiceException;
-
-
 
 }

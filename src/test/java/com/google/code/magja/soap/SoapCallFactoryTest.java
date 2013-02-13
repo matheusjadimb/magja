@@ -25,6 +25,7 @@ import com.google.common.collect.Iterators;
 
 /**
  * Test {@link SoapCallFactory}.
+ * 
  * @author ceefour
  */
 public class SoapCallFactoryTest {
@@ -48,13 +49,13 @@ public class SoapCallFactoryTest {
 	}
 
 	/**
-	 * Test method for {@link com.google.code.magja.soap.SoapCallFactory#createCall(java.lang.String, java.lang.String, java.lang.Object)}.
+	 * Test method for
+	 * {@link com.google.code.magja.soap.SoapCallFactory#createCall(java.lang.String, java.lang.String, java.lang.Object)}
+	 * .
 	 */
 	@Test
 	public void createCallList() {
-		List<Serializable> args = ImmutableList.of(
-				2,
-				ImmutableMap.of("name", "Bandana", "description", "Bandana keren untuk penampilan Anda") );
+		List<Serializable> args = ImmutableList.of(2, ImmutableMap.of("name", "Bandana", "description", "Bandana keren untuk penampilan Anda"));
 		OMElement element = soapCallFactory.createCall("abc", "catalog_category.create", args);
 		log.info("createCallList {}", element);
 		Assert.assertNotNull(element);
@@ -62,13 +63,13 @@ public class SoapCallFactoryTest {
 	}
 
 	/**
-	 * Test method for {@link com.google.code.magja.soap.SoapCallFactory#createCall(java.lang.String, java.lang.String, java.lang.Object)}.
+	 * Test method for
+	 * {@link com.google.code.magja.soap.SoapCallFactory#createCall(java.lang.String, java.lang.String, java.lang.Object)}
+	 * .
 	 */
 	@Test
 	public void createCallArray() {
-		Serializable[] args = new Serializable[] {
-				2,
-				ImmutableMap.of("name", "Bandana", "description", "Bandana keren untuk penampilan Anda") };
+		Serializable[] args = new Serializable[] { 2, ImmutableMap.of("name", "Bandana", "description", "Bandana keren untuk penampilan Anda") };
 		OMElement element = soapCallFactory.createCall("abc", "catalog_category.create", args);
 		log.info("createCallArray {}", element);
 		Assert.assertNotNull(element);
@@ -76,8 +77,11 @@ public class SoapCallFactoryTest {
 	}
 
 	/**
-	 * Test method for {@link com.google.code.magja.soap.SoapCallFactory#createCall(java.lang.String, java.lang.String, java.lang.Object)}.
-	 * @throws ScriptException 
+	 * Test method for
+	 * {@link com.google.code.magja.soap.SoapCallFactory#createCall(java.lang.String, java.lang.String, java.lang.Object)}
+	 * .
+	 * 
+	 * @throws ScriptException
 	 */
 	@Test
 	public void createCallJavascriptArray() throws ScriptException {
@@ -91,8 +95,11 @@ public class SoapCallFactoryTest {
 	}
 
 	/**
-	 * Test method for {@link com.google.code.magja.soap.SoapCallFactory#createCall(java.lang.String, java.lang.String, java.lang.Object)}.
-	 * @throws ScriptException 
+	 * Test method for
+	 * {@link com.google.code.magja.soap.SoapCallFactory#createCall(java.lang.String, java.lang.String, java.lang.Object)}
+	 * .
+	 * 
+	 * @throws ScriptException
 	 */
 	@Test
 	public void createCallJavascriptIntArray() throws ScriptException {
@@ -106,16 +113,17 @@ public class SoapCallFactoryTest {
 	}
 
 	/**
-	 * Test method for {@link com.google.code.magja.soap.SoapCallFactory#createCall(java.lang.String, java.lang.String, java.lang.Object)}.
-	 * @throws ScriptException 
+	 * Test method for
+	 * {@link com.google.code.magja.soap.SoapCallFactory#createCall(java.lang.String, java.lang.String, java.lang.Object)}
+	 * .
+	 * 
+	 * @throws ScriptException
 	 */
 	@Test
 	public void createCallProductUpdatePrice() throws ScriptException {
-    	ImmutableList<ProductUpdatePrice> products = ImmutableList.of(
-				new ProductUpdatePrice("ajah_a", new BigDecimal(500000), new BigDecimal(600000)),
+		ImmutableList<ProductUpdatePrice> products = ImmutableList.of(new ProductUpdatePrice("ajah_a", new BigDecimal(500000), new BigDecimal(600000)),
 				new ProductUpdatePrice("zibalabel_b_06", new BigDecimal(500000), new BigDecimal(600000)));
-		OMElement element = soapCallFactory.createCall("abc", ResourcePath.ProductUpdatePrice.getPath(),
-				new Object[] { products });
+		OMElement element = soapCallFactory.createCall("abc", ResourcePath.ProductUpdatePrice.getPath(), new Object[] { products });
 		log.info("createCallProductUpdatePrice {}", element);
 		Assert.assertNotNull(element);
 		Assert.assertEquals(1, Iterators.size(element.getChildElements()));
