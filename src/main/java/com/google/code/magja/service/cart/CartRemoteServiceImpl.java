@@ -266,13 +266,8 @@ public class CartRemoteServiceImpl extends GeneralServiceImpl<Cart> implements C
 	@Override
 	public void setShippingMethod(Cart cart) throws ServiceException {
 		try {
-			List<Object> list = new LinkedList<Object>();
-			cart.getShippingAddress().setType(Type.Shipping);
-			cart.getBillingAddress().setType(Type.Billing);
-			list.add(cart.getShippingAddress().serializeToApi());
-			list.add(cart.getBillingAddress().serializeToApi());
-
-			Boolean success = (Boolean) soapClient.callArgs(ResourcePath.ShoppingCartCustomerAddresses, new Object[] { cart.getId(), list, cart.getStoreId() });
+			String method = cart.getShippingMethod();
+			Boolean success = (Boolean) soapClient.callArgs(ResourcePath.ShoppingCartShippingMethod, new Object[] { cart.getId(), method, cart.getStoreId() });
 			if (!success) {
 				throw new ServiceException("Could not set shipping method information");
 			}
